@@ -1,0 +1,23 @@
+VCD info: dumpfile sim/visionaid.vcd opened for output.
+VisionAid safety-island simulation (27 MHz, 3 x 33 ms ultrasonic slots)
+[  110.0 ms] PASS  T1 left  sensor 1500 mm measured within +/-1 mm
+[  110.0 ms] PASS  T1 right sensor 2500 mm measured within +/-1 mm
+[  110.0 ms] PASS  T1 head  sensor: nothing in range reported as 0xFFFF
+      measured: L=1499 mm  R=2499 mm  H=ffff
+[  110.0 ms] PASS  T1 zones: 1.5 m -> WARN, 2.5 m -> INFO
+      echo-edge -> motor-on latency: 4 events, mean 210.9 ns, max 214.2 ns (5.8 clock cycles)
+[  910.0 ms] PASS  T2 worst-case echo -> motor latency < 1 us (target <= 1 ms)
+[  910.0 ms] PASS  T3 Pi status frames received with valid checksums
+      frames ok=45 bad=0, last: L=849 R=2499 LiDAR=150 cm flags=00000000
+[  960.4 ms] PASS  T4 Pi command accepted: LiDAR baseline = 150 cm
+[  960.4 ms] PASS  T4 no drop-off alert on a flat floor
+      drop-off detected 22.3 ms after the floor reading changed (3-frame filter at 100 Hz)
+[  982.8 ms] PASS  T4 drop-off alert within 50 ms
+[  983.8 ms] PASS  T4 drop-off drives both motors (urgent) + buzzer
+[ 2683.8 ms] PASS  T4 drop-off alert clears after hold time on a flat floor
+      AI-offline flagged 666 ms after the last possible heartbeat edge
+[ 3349.9 ms] PASS  T5 AI offline detected within 1 s
+[ 3459.9 ms] PASS  T5 obstacle alert still works with the Pi offline (FPGA-only path)
+[ 3859.9 ms] PASS  T6 unplugged sensor -> fault flag + FAULT_N low
+RESULT: ALL TESTS PASSED (0 failures)
+tb/tb_visionaid.v:234: $finish called at 3859907403670 (1ps)

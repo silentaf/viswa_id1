@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "VisionAid")(type "KiCad")(uri "${KIPRJMOD}/VisionAid.pretty")(options "")(descr "VisionAid project footprints"))
+)

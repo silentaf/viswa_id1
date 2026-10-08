@@ -1,0 +1,37 @@
+
+7. Printing statistics.
+
+=== visionaid_top ===
+
+   Number of wires:               3661
+   Number of wire bits:           5651
+   Number of public wires:        3661
+   Number of public wire bits:    5651
+   Number of ports:                 17
+   Number of port bits:             26
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               3475
+     $scopeinfo                     25
+     ALU                           775
+     DFF                            17
+     DFFE                          148
+     DFFR                           86
+     DFFRE                         235
+     DFFS                           16
+     DFFSE                          66
+     GND                             1
+     IBUF                           11
+     LUT1                           98
+     LUT2                          248
+     LUT3                          340
+     LUT4                          794
+     MUX2_LUT5                     401
+     MUX2_LUT6                     127
+     MUX2_LUT7                      52
+     MUX2_LUT8                      11
+     OBUF                           15
+     RAM16SDP4                       8
+     VCC                             1
+

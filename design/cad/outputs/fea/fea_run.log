@@ -1,0 +1,802 @@
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v1_sharp_down50N_h3p0' doesn't exist and create parameter is set to False.
+[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v1_sharp_down50N_h3p0Solid', 'mat_obj_name': 'PETG_v1_sharp_down50N_h3p0', 'ccx_mat_name': 'PETG'}]
+v1_sharp     down50N h=3.0 elems=  2082 max vM=  5.69 MPa root vM=  1.59 FoS= 8.78 disp=0.0629 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v1_sharp_down50N_h2p0' doesn't exist and create parameter is set to False.
+FreeCAD 26.3.0, Libs: 26.3.0devR20260916 (Git shallow)
+(C) 2001-2026 FreeCAD contributors
+FreeCAD is free and open-source software licensed under the terms of LGPL2+ license.
+
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******
+
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******
+[0m
+OCCT: 
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******
+
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******
+
+[32;1m******        Transferring Shape, ShapeType = 0                      ******
+[0m
+OCCT: ******        Transferring Shape, ShapeType = 0                      ******
+
+[32;1m** WorkSession : Sending all data
+[0m
+OCCT: ** WorkSession : Sending all data
+
+[32;1m Step File Name : /home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/mount_v1_sharp.step(536 ents)  Write  Done
+[0m
+OCCT:  Step File Name : /home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/mount_v1_sharp.step(536 ents)  Write  Done
+
+  ElementDimension: 3
+  /tmp/fem_78i8793m/Mount_v1_sharp_Geometry.brep
+  /tmp/fem_78i8793m/Mount_v1_sharp_Mesh.vtk
+  /tmp/fem_78i8793m/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_z9vffdgv' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v1_sharp_down50N_h3p0:
+    Type: Fem::MaterialCommon, Name: PETG_v1_sharp_down50N_h3p0
+Fixed_v1_sharp_down50N_h3p0:
+    Type: Fem::ConstraintFixed, Name: Fixed_v1_sharp_down50N_h3p0
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face16
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face18
+Load_v1_sharp_down50N_h3p0:
+    Type: Fem::ConstraintForce, Name: Load_v1_sharp_down50N_h3p0
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face4
+Getting mesh data time: 1.246 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_z9vffdgv/Mesh_v1_sharp_down50N_h3p0.inp
+One monster input file.
+Writing time CalculiX input file: 0.009 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_z9vffdgv/Mesh_v1_sharp_down50N_h3p0.frd
+Read ccx results from dat file: /tmp/fcfem_z9vffdgv/Mesh_v1_sharp_down50N_h3p0.dat
+  ElementDimension: 3
+  /tmp/fem_nf3iraam/Mount_v1_sharp_Geometry.brep
+  /tmp/fem_nf3iraam/Mount_v1_sharp_Mesh.vtk
+  /tmp/fem_nf3iraam/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_422_sfwr' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v1_sharp_down50N_h2p0:
+    Type: Fem::MaterialCommon, Name: PETG_v1_sharp_down50N_h2p0
+Fixed_v1_sharp_down50N_h2p0:
+    Type: Fem::ConstraintFixed, Name: Fixed_v1_sharp_down50N_h2p0
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face16
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face18
+Load_v1_sharp_down50N_h2p0:
+    Type: Fem::ConstraintForce, Name: Load_v1_sharp_down50N_h2p0
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face4
+Getting mesh data time: 2.386 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_422_sfwr/Mesh_v1_sharp_down50N_h2p0.inp
+One monster input file.
+Writing time CalculiX input file: 0.016 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_422_sfwr/Mesh_v1_sharp_down50N_h2p0.frd
+Read ccx results from dat file: /tmp/fcfem_422_sfwr/Mesh_v1_sha[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v1_sharp_down50N_h2p0Solid', 'mat_obj_name': 'PETG_v1_sharp_down50N_h2p0', 'ccx_mat_name': 'PETG'}]
+v1_sharp     down50N h=2.0 elems=  3678 max vM=  5.82 MPa root vM=  1.63 FoS= 8.59 disp=0.0632 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v1_sharp_down50N_h1p4' doesn't exist and create parameter is set to False.
+[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v1_sharp_down50N_h1p4Solid', 'mat_obj_name': 'PETG_v1_sharp_down50N_h1p4', 'ccx_mat_name': 'PETG'}]
+v1_sharp     down50N h=1.4 elems=  8181 max vM=  5.43 MPa root vM=  1.92 FoS= 9.22 disp=0.0635 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v1_sharp_down50N_h1p0' doesn't exist and create parameter is set to False.
+[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v1_sharp_down50N_h1p0Solid', 'mat_obj_name': 'PETG_v1_sharp_down50N_h1p0', 'ccx_mat_name': 'PETG'}]
+v1_sharp     down50N h=1.0 elems= 19477 max vM=  5.77 MPa root vM=  2.20 FoS= 8.67 disp=0.0637 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v1_sharp_side20N_h3p0' doesn't exist and create parameter is set to False.
+rp_down50N_h2p0.dat
+  ElementDimension: 3
+  /tmp/fem_5ni35pf8/Mount_v1_sharp_Geometry.brep
+  /tmp/fem_5ni35pf8/Mount_v1_sharp_Mesh.vtk
+  /tmp/fem_5ni35pf8/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_kx06kljr' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v1_sharp_down50N_h1p4:
+    Type: Fem::MaterialCommon, Name: PETG_v1_sharp_down50N_h1p4
+Fixed_v1_sharp_down50N_h1p4:
+    Type: Fem::ConstraintFixed, Name: Fixed_v1_sharp_down50N_h1p4
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face16
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face18
+Load_v1_sharp_down50N_h1p4:
+    Type: Fem::ConstraintForce, Name: Load_v1_sharp_down50N_h1p4
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face4
+Getting mesh data time: 3.862 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_kx06kljr/Mesh_v1_sharp_down50N_h1p4.inp
+One monster input file.
+Writing time CalculiX input file: 0.035 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_kx06kljr/Mesh_v1_sharp_down50N_h1p4.frd
+Read ccx results from dat file: /tmp/fcfem_kx06kljr/Mesh_v1_sharp_down50N_h1p4.dat
+  ElementDimension: 3
+  /tmp/fem_c_0x3n9x/Mount_v1_sharp_Geometry.brep
+  /tmp/fem_c_0x3n9x/Mount_v1_sharp_Mesh.vtk
+  /tmp/fem_c_0x3n9x/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_lhmqyqza' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v1_sharp_down50N_h1p0:
+    Type: Fem::MaterialCommon, Name: PETG_v1_sharp_down50N_h1p0
+Fixed_v1_sharp_down50N_h1p0:
+    Type: Fem::ConstraintFixed, Name: Fixed_v1_sharp_down50N_h1p0
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face16
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face18
+Load_v1_sharp_down50N_h1p0:
+    Type: Fem::ConstraintForce, Name: Load_v1_sharp_down50N_h1p0
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face4
+Getting mesh data time: 7.461 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_lhmqyqza/Mesh_v1_sharp_down50N_h1p0.inp
+One monster input file.
+Writing time CalculiX input file: 0.079 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_lhmqyqza/Mesh_v1_sharp_down50N_h1p0.frd
+Read ccx results from dat file: /tmp/fcfem_lhmqyqza/Mesh_v1_sharp_down50N_h1p0.dat
+  ElementDimension: 3
+  /tmp/fem_p5g_4y3n/Mount_v1_sharp_Geometry.brep
+  /tmp/fem_p5g_4y3n/Mount_v1_sharp_Mesh.vtk
+  /tmp/fem_p5g_4y3n/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_e060_e5z' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v1_sharp_side20N_h3p0:
+    Type: Fem::MaterialCommon, Name: PETG_v1_sharp_side20N_h3p0
+Fixed_v1_sharp_side20N_h3p0:
+    Type: Fem::ConstraintFixed, Name: Fixed_v1_sharp_side20N_h3p0
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face16
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face18
+Load_v1_sharp_side20N_h3p0:
+    Type: Fem::ConstraintForce, Name: Load_v1_sharp_side20N_h3p0
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face4
+Getting mesh data time: 1.313 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_e060_e5z/Mesh_v1_sharp_side20N_h3p0.inp
+One monster input file.
+Writing time CalculiX input file: 0.009 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Rea[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v1_sharp_side20N_h3p0Solid', 'mat_obj_name': 'PETG_v1_sharp_side20N_h3p0', 'ccx_mat_name': 'PETG'}]
+v1_sharp     side20N h=3.0 elems=  2079 max vM=  4.19 MPa root vM=  1.62 FoS=11.93 disp=0.0306 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v1_sharp_side20N_h2p0' doesn't exist and create parameter is set to False.
+[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v1_sharp_side20N_h2p0Solid', 'mat_obj_name': 'PETG_v1_sharp_side20N_h2p0', 'ccx_mat_name': 'PETG'}]
+v1_sharp     side20N h=2.0 elems=  3700 max vM=  4.58 MPa root vM=  1.73 FoS=10.93 disp=0.0312 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v1_sharp_side20N_h1p4' doesn't exist and create parameter is set to False.
+[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v1_sharp_side20N_h1p4Solid', 'mat_obj_name': 'PETG_v1_sharp_side20N_h1p4', 'ccx_mat_name': 'PETG'}]
+v1_sharp     side20N h=1.4 elems=  8241 max vM=  4.30 MPa root vM=  2.46 FoS=11.62 disp=0.0317 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v1_sharp_side20N_h1p0' doesn't exist and create parameter is set to False.
+d ccx results from frd file: /tmp/fcfem_e060_e5z/Mesh_v1_sharp_side20N_h3p0.frd
+Read ccx results from dat file: /tmp/fcfem_e060_e5z/Mesh_v1_sharp_side20N_h3p0.dat
+  ElementDimension: 3
+  /tmp/fem_onwzs4fk/Mount_v1_sharp_Geometry.brep
+  /tmp/fem_onwzs4fk/Mount_v1_sharp_Mesh.vtk
+  /tmp/fem_onwzs4fk/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_lmbtqgoa' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v1_sharp_side20N_h2p0:
+    Type: Fem::MaterialCommon, Name: PETG_v1_sharp_side20N_h2p0
+Fixed_v1_sharp_side20N_h2p0:
+    Type: Fem::ConstraintFixed, Name: Fixed_v1_sharp_side20N_h2p0
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face16
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face18
+Load_v1_sharp_side20N_h2p0:
+    Type: Fem::ConstraintForce, Name: Load_v1_sharp_side20N_h2p0
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face4
+Getting mesh data time: 2.334 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_lmbtqgoa/Mesh_v1_sharp_side20N_h2p0.inp
+One monster input file.
+Writing time CalculiX input file: 0.016 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_lmbtqgoa/Mesh_v1_sharp_side20N_h2p0.frd
+Read ccx results from dat file: /tmp/fcfem_lmbtqgoa/Mesh_v1_sharp_side20N_h2p0.dat
+  ElementDimension: 3
+  /tmp/fem_5jrp9g_c/Mount_v1_sharp_Geometry.brep
+  /tmp/fem_5jrp9g_c/Mount_v1_sharp_Mesh.vtk
+  /tmp/fem_5jrp9g_c/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_l2_ntqso' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v1_sharp_side20N_h1p4:
+    Type: Fem::MaterialCommon, Name: PETG_v1_sharp_side20N_h1p4
+Fixed_v1_sharp_side20N_h1p4:
+    Type: Fem::ConstraintFixed, Name: Fixed_v1_sharp_side20N_h1p4
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face16
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face18
+Load_v1_sharp_side20N_h1p4:
+    Type: Fem::ConstraintForce, Name: Load_v1_sharp_side20N_h1p4
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face4
+Getting mesh data time: 3.898 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_l2_ntqso/Mesh_v1_sharp_side20N_h1p4.inp
+One monster input file.
+Writing time CalculiX input file: 0.035 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_l2_ntqso/Mesh_v1_sharp_side20N_h1p4.frd
+Read ccx results from dat file: /tmp/fcfem_l2_ntqso/Mesh_v1_sharp_side20N_h1p4.dat
+  ElementDimension: 3
+  /tmp/fem_ueunkxqf/Mount_v1_sharp_Geometry.brep
+  /tmp/fem_ueunkxqf/Mount_v1_sharp_Mesh.vtk
+  /tmp/fem_ueunkxqf/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_9y5c5vr2' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v1_sharp_side20N_h1p0:
+    Type: Fem::MaterialCommon, Name: PETG_v1_sharp_side20N_h1p0
+Fixed_v1_sharp_side20N_h1p0:
+    Type: Fem::ConstraintFixed, Name: Fixed_v1_sharp_side20N_h1p0
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face16
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face18
+Load_v1_sharp_side20N_h1p0:
+    Type: Fem::ConstraintForce, Name: Load_v1_sharp_side20N_h1p0
+    ReferenceShape ... Type: Face, Object name: Mount_v1_sharp, Object label: Mount_v1_sharp, Element name: Face4
+Getting mesh data time: 7.578 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_9y5c5vr2/Mesh_v1_sharp_side20N_h1p0.inp
+One monster inpu[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v1_sharp_side20N_h1p0Solid', 'mat_obj_name': 'PETG_v1_sharp_side20N_h1p0', 'ccx_mat_name': 'PETG'}]
+v1_sharp     side20N h=1.0 elems= 19337 max vM=  5.12 MPa root vM=  2.52 FoS= 9.77 disp=0.0324 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v2_fillet1p5_down50N_h3p0' doesn't exist and create parameter is set to False.
+[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v2_fillet1p5_down50N_h3p0Solid', 'mat_obj_name': 'PETG_v2_fillet1p5_down50N_h3p0', 'ccx_mat_name': 'PETG'}]
+v2_fillet1p5 down50N h=3.0 elems=  7343 max vM=  5.67 MPa root vM=  1.80 FoS= 8.81 disp=0.0614 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v2_fillet1p5_down50N_h2p0' doesn't exist and create parameter is set to False.
+t file.
+Writing time CalculiX input file: 0.078 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_9y5c5vr2/Mesh_v1_sharp_side20N_h1p0.frd
+Read ccx results from dat file: /tmp/fcfem_9y5c5vr2/Mesh_v1_sharp_side20N_h1p0.dat
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******
+
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******
+[0m
+OCCT: 
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******
+
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******
+
+[32;1m******        Transferring Shape, ShapeType = 0                      ******
+[0m
+OCCT: ******        Transferring Shape, ShapeType = 0                      ******
+
+[32;1m** WorkSession : Sending all data
+[0m
+OCCT: ** WorkSession : Sending all data
+
+[32;1m Step File Name : /home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/mount_v2_fillet1p5.step(736 ents)  Write  Done
+[0m
+OCCT:  Step File Name : /home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/mount_v2_fillet1p5.step(736 ents)  Write  Done
+
+  ElementDimension: 3
+  /tmp/fem_t7m1zi16/Mount_v2_fillet1p5_Geometry.brep
+  /tmp/fem_t7m1zi16/Mount_v2_fillet1p5_Mesh.vtk
+  /tmp/fem_t7m1zi16/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_osvaqknw' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v2_fillet1p5_down50N_h3p0:
+    Type: Fem::MaterialCommon, Name: PETG_v2_fillet1p5_down50N_h3p0
+Fixed_v2_fillet1p5_down50N_h3p0:
+    Type: Fem::ConstraintFixed, Name: Fixed_v2_fillet1p5_down50N_h3p0
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face24
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face26
+Load_v2_fillet1p5_down50N_h3p0:
+    Type: Fem::ConstraintForce, Name: Load_v2_fillet1p5_down50N_h3p0
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face18
+Getting mesh data time: 1.181 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_osvaqknw/Mesh_v2_fillet1p5_down50N_h3p0.inp
+One monster input file.
+Writing time CalculiX input file: 0.028 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_osvaqknw/Mesh_v2_fillet1p5_down50N_h3p0.frd
+Read ccx results from dat file: /tmp/fcfem_osvaqknw/Mesh_v2_fillet1p5_down50N_h3p0.dat
+  ElementDimension: 3
+  /tmp/fem_00rpq3wb/Mount_v2_fillet1p5_Geometry.brep
+  /tmp/fem_00rpq3wb/Mount_v2_fillet1p5_Mesh.vtk
+  /tmp/fem_00rpq3wb/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_psgth6tm' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v2_fillet1p5_down50N_h2p0:
+    Type: Fem::MaterialCommon, Name: PETG_v2_fillet1p5_down50N_h2p0
+Fixed_v2_fillet1p5_down50N_h2p0:
+    Type: Fem::ConstraintFixed, Name: Fixed_v2_fillet1p5_down50N_h2p0
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face24
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face26
+Load_v2_fillet1p5_down50N_h2p0:
+    Type: Fem::ConstraintForce, Name: Load_v2_fillet1p5_down50N_h2p0
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face18
+Getting mesh data time: 2.008 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_psgth6tm/Mesh_v2_fillet1p5_down50N_h2p0.inp
+One monster input file.
+Writing ti[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v2_fillet1p5_down50N_h2p0Solid', 'mat_obj_name': 'PETG_v2_fillet1p5_down50N_h2p0', 'ccx_mat_name': 'PETG'}]
+v2_fillet1p5 down50N h=2.0 elems=  9035 max vM=  5.61 MPa root vM=  1.82 FoS= 8.92 disp=0.0615 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v2_fillet1p5_down50N_h1p4' doesn't exist and create parameter is set to False.
+[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v2_fillet1p5_down50N_h1p4Solid', 'mat_obj_name': 'PETG_v2_fillet1p5_down50N_h1p4', 'ccx_mat_name': 'PETG'}]
+v2_fillet1p5 down50N h=1.4 elems= 13572 max vM=  5.74 MPa root vM=  1.76 FoS= 8.71 disp=0.0615 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v2_fillet1p5_down50N_h1p0' doesn't exist and create parameter is set to False.
+CalculiX failed with exit code 201
+me CalculiX input file: 0.035 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_psgth6tm/Mesh_v2_fillet1p5_down50N_h2p0.frd
+Read ccx results from dat file: /tmp/fcfem_psgth6tm/Mesh_v2_fillet1p5_down50N_h2p0.dat
+  ElementDimension: 3
+  /tmp/fem_jvep1nzk/Mount_v2_fillet1p5_Geometry.brep
+  /tmp/fem_jvep1nzk/Mount_v2_fillet1p5_Mesh.vtk
+  /tmp/fem_jvep1nzk/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_attpmc_z' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v2_fillet1p5_down50N_h1p4:
+    Type: Fem::MaterialCommon, Name: PETG_v2_fillet1p5_down50N_h1p4
+Fixed_v2_fillet1p5_down50N_h1p4:
+    Type: Fem::ConstraintFixed, Name: Fixed_v2_fillet1p5_down50N_h1p4
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face24
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face26
+Load_v2_fillet1p5_down50N_h1p4:
+    Type: Fem::ConstraintForce, Name: Load_v2_fillet1p5_down50N_h1p4
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face18
+Getting mesh data time: 3.916 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_attpmc_z/Mesh_v2_fillet1p5_down50N_h1p4.inp
+One monster input file.
+Writing time CalculiX input file: 0.054 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_attpmc_z/Mesh_v2_fillet1p5_down50N_h1p4.frd
+Read ccx results from dat file: /tmp/fcfem_attpmc_z/Mesh_v2_fillet1p5_down50N_h1p4.dat
+  ElementDimension: 3
+  /tmp/fem_xsj_9dq2/Mount_v2_fillet1p5_Geometry.brep
+  /tmp/fem_xsj_9dq2/Mount_v2_fillet1p5_Mesh.vtk
+  /tmp/fem_xsj_9dq2/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_irhiw0e8' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v2_fillet1p5_down50N_h1p0:
+    Type: Fem::MaterialCommon, Name: PETG_v2_fillet1p5_down50N_h1p0
+Fixed_v2_fillet1p5_down50N_h1p0:
+    Type: Fem::ConstraintFixed, Name: Fixed_v2_fillet1p5_down50N_h1p0
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face24
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face26
+Load_v2_fillet1p5_down50N_h1p0:
+    Type: Fem::ConstraintForce, Name: Load_v2_fillet1p5_down50N_h1p0
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face18
+Getting mesh data time: 7.589 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_irhiw0e8/Mesh_v2_fillet1p5_down50N_h1p0.inp
+One monster input file.
+Writing time CalculiX input file: 0.094 seconds.
+
+CalculiX solver run...
+--------start of stderr-------
+--------end of stderr---------
+--------start of stdout-------
+
+************************************************************
+
+CalculiX Version 2.23, Copyright(C) 1998-2025 Guido Dhondt
+CalculiX comes with ABSOLUTELY NO WARRANTY. This is free
+software, and you are welcome to redistribute it under
+certain conditions, see gpl.htm
+
+************************************************************
+
+You are using an executable made on Mon Sep 28 09:16:29 2026
+
+  The numbers below are estimated upper bounds
+
+  number of:
+
+   nodes:        41887
+   elements:        34720
+   one-dimensional elements:            0
+   two-dimensional elements:            0
+   integration points per element:            4
+   degrees of freedom per node:            3
+   layers per element:            1
+
+   distributed facial loads:            0
+   distributed volumetric loads:            0
+   concentrated loads:         4805
+   single point constraints:         1884
+   multiple point constraints:            1
+   terms in all multiple point constraints:       
+
+CalculiX returned an error due to nonpositive jacobian elements.
+Nodes, but no results found in frd file. It means there only is a mesh but no results in frd file. Usually this happens for: 
+- if CalculiX returned no results (happens on nonpositive jacobian determinant in at least one element)
+- just no frd results where requestet in input file (neither 'node file' nor 'el file' in output section')
+[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v2_fillet1p5_down50N_h1p0Solid', 'mat_obj_name': 'PETG_v2_fillet1p5_down50N_h1p0', 'ccx_mat_name': 'PETG'}]
+v2_fillet1p5 down50N h=1.0  FAILED: max() iterable argument is empty
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v2_fillet1p5_side20N_h3p0' doesn't exist and create parameter is set to False.
+[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v2_fillet1p5_side20N_h3p0Solid', 'mat_obj_name': 'PETG_v2_fillet1p5_side20N_h3p0', 'ccx_mat_name': 'PETG'}]
+v2_fillet1p5 side20N h=3.0 elems=  7316 max vM=  4.24 MPa root vM=  2.42 FoS=11.78 disp=0.0285 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v2_fillet1p5_side20N_h2p0' doesn't exist and create parameter is set to False.
+     1
+   tie constraints:            0
+   dependent nodes tied by cyclic constraints:            0
+   dependent nodes in pre-tension constraints:            0
+
+   sets:            5
+   terms in all sets:       156144
+
+   materials:            1
+   constants per material and temperature:            2
+   temperature points per material:            1
+   plastic data points per material:            0
+
+   orientations:            0
+   amplitudes:            2
+   data points in all amplitudes:            2
+   print requests:            1
+   transformations:            0
+   property cards:            0
+
+
+ STEP            1
+
+ Static analysis was selected
+
+ Decascading the MPC's
+
+ Determining the structure of the matrix:
+ Using up to 24 cpu(s) for setting up the structure of the matrix.
+ number of equations
+ 123777
+ number of nonzero lower triangular matrix elements
+ 4488363
+
+ Using up to 24 cpu(s) for the stress calculation.
+
+ Using up to 24 cpu(s) for the symmetric stiffness/mass contributions.
+
+ *ERROR in e_c3d: nonpositive jacobian
+        determinant in element       29805
+
+
+--------end of stdout---------
+--------start problems---------
+nonpositive_jacobian_elements = [29805]
+nonpositive_jacobian_elenodes = [486, 8650, 8676, 8677, 8748, 8751, 8753, 8754, 8755, 24424]
+
+Following some commands to copy. They highlight the nonpositive jacobians or to reset the highlighted nodes:
+Gui.ActiveDocument.Mesh_v2_fillet1p5_down50N_h1p0.HighlightedNodes = nonpositive_jacobian_elenodes
+Gui.ActiveDocument.Mesh_v2_fillet1p5_down50N_h1p0.HighlightedNodes = []
+
+
+--------end problems---------
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_irhiw0e8/Mesh_v2_fillet1p5_down50N_h1p0.frd
+Read ccx results from dat file: /tmp/fcfem_irhiw0e8/Mesh_v2_fillet1p5_down50N_h1p0.dat
+  ElementDimension: 3
+  /tmp/fem_293874l4/Mount_v2_fillet1p5_Geometry.brep
+  /tmp/fem_293874l4/Mount_v2_fillet1p5_Mesh.vtk
+  /tmp/fem_293874l4/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_7hk4ugke' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v2_fillet1p5_side20N_h3p0:
+    Type: Fem::MaterialCommon, Name: PETG_v2_fillet1p5_side20N_h3p0
+Fixed_v2_fillet1p5_side20N_h3p0:
+    Type: Fem::ConstraintFixed, Name: Fixed_v2_fillet1p5_side20N_h3p0
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face24
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face26
+Load_v2_fillet1p5_side20N_h3p0:
+    Type: Fem::ConstraintForce, Name: Load_v2_fillet1p5_side20N_h3p0
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face18
+Getting mesh data time: 1.162 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_7hk4ugke/Mesh_v2_fillet1p5_side20N_h3p0.inp
+One monster input file.
+Writing time CalculiX input file: 0.028 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_7hk4ugke/Mesh_v2_fillet1p5_side20N_h3p0.frd
+Read ccx results from dat file: /tmp/fcfem_7hk4ugke/Mesh_v2_fillet1p5_side20N_h3p0.dat
+  ElementDimension: 3
+  /tmp/fem_7svu6_oz/Mount_v2_fillet1p5_Geometry.brep
+  /tmp/fem_7svu6_oz/Mount_v2_fillet1p5_Mesh.vtk
+  /tmp/fem_7svu6_oz/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_77n2ut3p' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v2_fillet1p5_side20N_h2p0:
+    Type: Fem::MaterialCommon, Name: PETG_v2_fillet1p5_side20N_h2p0
+Fixed_v2_fillet1p5_side20N_h2p0:
+    Type: Fem::ConstraintFixed, Name: Fixed_v2_fillet1p5_side20N_h2p0
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face24
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face26
+Load_v2_fillet1p5_side20N_h[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v2_fillet1p5_side20N_h2p0Solid', 'mat_obj_name': 'PETG_v2_fillet1p5_side20N_h2p0', 'ccx_mat_name': 'PETG'}]
+v2_fillet1p5 side20N h=2.0 elems=  9155 max vM=  4.22 MPa root vM=  2.41 FoS=11.85 disp=0.0286 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v2_fillet1p5_side20N_h1p4' doesn't exist and create parameter is set to False.
+[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v2_fillet1p5_side20N_h1p4Solid', 'mat_obj_name': 'PETG_v2_fillet1p5_side20N_h1p4', 'ccx_mat_name': 'PETG'}]
+v2_fillet1p5 side20N h=1.4 elems= 13509 max vM=  4.04 MPa root vM=  2.40 FoS=12.39 disp=0.0286 mm
+Dir given as parameter '/home/aman/Desktop/viswakarma/biothon/visiion aid/submission/design/cad/outputs/fea/work_v2_fillet1p5_side20N_h1p0' doesn't exist and create parameter is set to False.
+CalculiX failed with exit code 201
+2p0:
+    Type: Fem::ConstraintForce, Name: Load_v2_fillet1p5_side20N_h2p0
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face18
+Getting mesh data time: 2.146 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_77n2ut3p/Mesh_v2_fillet1p5_side20N_h2p0.inp
+One monster input file.
+Writing time CalculiX input file: 0.035 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_77n2ut3p/Mesh_v2_fillet1p5_side20N_h2p0.frd
+Read ccx results from dat file: /tmp/fcfem_77n2ut3p/Mesh_v2_fillet1p5_side20N_h2p0.dat
+  ElementDimension: 3
+  /tmp/fem_g3qspe7r/Mount_v2_fillet1p5_Geometry.brep
+  /tmp/fem_g3qspe7r/Mount_v2_fillet1p5_Mesh.vtk
+  /tmp/fem_g3qspe7r/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_4r4ljvi0' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v2_fillet1p5_side20N_h1p4:
+    Type: Fem::MaterialCommon, Name: PETG_v2_fillet1p5_side20N_h1p4
+Fixed_v2_fillet1p5_side20N_h1p4:
+    Type: Fem::ConstraintFixed, Name: Fixed_v2_fillet1p5_side20N_h1p4
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face24
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face26
+Load_v2_fillet1p5_side20N_h1p4:
+    Type: Fem::ConstraintForce, Name: Load_v2_fillet1p5_side20N_h1p4
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face18
+Getting mesh data time: 3.91 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_4r4ljvi0/Mesh_v2_fillet1p5_side20N_h1p4.inp
+One monster input file.
+Writing time CalculiX input file: 0.054 seconds.
+
+CalculiX solver run...
+CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_4r4ljvi0/Mesh_v2_fillet1p5_side20N_h1p4.frd
+Read ccx results from dat file: /tmp/fcfem_4r4ljvi0/Mesh_v2_fillet1p5_side20N_h1p4.dat
+  ElementDimension: 3
+  /tmp/fem_3msd2rx8/Mount_v2_fillet1p5_Geometry.brep
+  /tmp/fem_3msd2rx8/Mount_v2_fillet1p5_Mesh.vtk
+  /tmp/fem_3msd2rx8/shape2mesh.geo
+  /tmp/visionaid-tools/freecad-env/bin/gmsh
+Dir '/tmp/fcfem_2435w0il' will be used instead.
+
+Check prerequisites...
+
+Get mesh data for constraints, materials and element geometry...
+PETG_v2_fillet1p5_side20N_h1p0:
+    Type: Fem::MaterialCommon, Name: PETG_v2_fillet1p5_side20N_h1p0
+Fixed_v2_fillet1p5_side20N_h1p0:
+    Type: Fem::ConstraintFixed, Name: Fixed_v2_fillet1p5_side20N_h1p0
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face24
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face26
+Load_v2_fillet1p5_side20N_h1p0:
+    Type: Fem::ConstraintForce, Name: Load_v2_fillet1p5_side20N_h1p0
+    ReferenceShape ... Type: Face, Object name: Mount_v2_fillet1p5, Object label: Mount_v2_fillet1p5, Element name: Face18
+Getting mesh data time: 7.613 seconds.
+
+CalculiX solver input writing...
+Input file:/tmp/fcfem_2435w0il/Mesh_v2_fillet1p5_side20N_h1p0.inp
+One monster input file.
+Writing time CalculiX input file: 0.094 seconds.
+
+CalculiX solver run...
+--------start of stderr-------
+--------end of stderr---------
+--------start of stdout-------
+
+************************************************************
+
+CalculiX Version 2.23, Copyright(C) 1998-2025 Guido Dhondt
+CalculiX comes with ABSOLUTELY NO WARRANTY. This is free
+software, and you are welcome to redistribute it under
+certain conditions, see gpl.htm
+
+************************************************************
+
+You are using an executable made on Mon Sep 28 09:16:29 2026
+
+  The numbers below are estimated upper bounds
+
+  number of:
+
+   nodes:        41755
+   elements:        34624
+   one-dimensional elements:            0
+   two-dimensional elements:            0
+   integration points
+
+CalculiX returned an error due to nonpositive jacobian elements.
+Nodes, but no results found in frd file. It means there only is a mesh but no results in frd file. Usually this happens for: 
+- if CalculiX returned no results (happens on nonpositive jacobian determinant in at least one element)
+- just no frd results where requestet in input file (neither 'node file' nor 'el file' in output section')
+[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'PETG_v2_fillet1p5_side20N_h1p0Solid', 'mat_obj_name': 'PETG_v2_fillet1p5_side20N_h1p0', 'ccx_mat_name': 'PETG'}]
+v2_fillet1p5 side20N h=1.0  FAILED: max() iterable argument is empty
+done
+ per element:            4
+   degrees of freedom per node:            3
+   layers per element:            1
+
+   distributed facial loads:            0
+   distributed volumetric loads:            0
+   concentrated loads:         4781
+   single point constraints:         1884
+   multiple point constraints:            1
+   terms in all multiple point constraints:            1
+   tie constraints:            0
+   dependent nodes tied by cyclic constraints:            0
+   dependent nodes in pre-tension constraints:            0
+
+   sets:            5
+   terms in all sets:       155628
+
+   materials:            1
+   constants per material and temperature:            2
+   temperature points per material:            1
+   plastic data points per material:            0
+
+   orientations:            0
+   amplitudes:            2
+   data points in all amplitudes:            2
+   print requests:            1
+   transformations:            0
+   property cards:            0
+
+
+ STEP            1
+
+ Static analysis was selected
+
+ Decascading the MPC's
+
+ Determining the structure of the matrix:
+ Using up to 24 cpu(s) for setting up the structure of the matrix.
+ number of equations
+ 123381
+ number of nonzero lower triangular matrix elements
+ 4473846
+
+ Using up to 24 cpu(s) for the stress calculation.
+
+ Using up to 24 cpu(s) for the symmetric stiffness/mass contributions.
+
+ *ERROR in e_c3d: nonpositive jacobian
+        determinant in element       29719
+
+ *ERROR in e_c3d: nonpositive jacobian
+        determinant in element       29720
+
+
+--------end of stdout---------
+--------start problems---------
+nonpositive_jacobian_elements = [29719, 29720]
+nonpositive_jacobian_elenodes = [130, 486, 6426, 6452, 6453, 6524, 6527, 6529, 6530, 6531, 8650, 8676, 8677, 8748, 8751, 8753, 8754, 8755, 24570, 29084]
+
+Following some commands to copy. They highlight the nonpositive jacobians or to reset the highlighted nodes:
+Gui.ActiveDocument.Mesh_v2_fillet1p5_side20N_h1p0.HighlightedNodes = nonpositive_jacobian_elenodes
+Gui.ActiveDocument.Mesh_v2_fillet1p5_side20N_h1p0.HighlightedNodes = []
+
+
+--------end problems---------
+
+CalculiX read results...
+Read ccx results from frd file: /tmp/fcfem_2435w0il/Mesh_v2_fillet1p5_side20N_h1p0.frd
+Read ccx results from dat file: /tmp/fcfem_2435w0il/Mesh_v2_fillet1p5_side20N_h1p0.dat
