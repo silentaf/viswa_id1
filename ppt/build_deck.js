@@ -229,10 +229,10 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     ['Warning time, 3 m range at 1.2 m/s: ', '≈ 2.5 s (calculated, target range)'],
     ['Echo edge → motor on: ', '136-214 ns (simulated; target ≤ 1 ms)'],
     ['Update per direction: ', '99 ms (by design, simulated)'],
-    ['Drop-off alert after floor change: ', '22 ms (simulated); ≥ 1 m ahead (target)'],
-    ['Read-aloud: ', '≤ 3 s per short label (target, Stage 3 test)'],
+    ['Drop-off warned: ', '1.86 m before the step (calculated from CAD angles); alert 22 ms after (simulated)'],
+    ['Camera → spoken warning: ', '211 ms (measured on laptop, not Pi 5)'],
   ], { fill: GREEN, line: GREENLINE, size: 15 });
-  note(s, 'Honesty rule:', 'no hardware has been built yet - simulated values come from our Verilog testbench (design/fpga); targets are verified on hardware in Stage 3.');
+  note(s, 'Honesty rule:', 'no hardware built yet - simulated = our Verilog testbench; measured = our Pi software run on the dev laptop; Pi 5 and field numbers come in Stage 3.');
 }
 
 // ======================================================================================= 5. architecture
@@ -266,10 +266,10 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     ['Alert latency (echo → motor)', '≤ 1 ms', 'Simulated 136-214 ns', 'Tang Nano 9K GW1NR-9 FPGA, 27 MHz'],
     ['Update period / direction', '≤ 100 ms', '99 ms by design (simulated)', '3 × 33 ms slots (no crosstalk)'],
     ['Distance resolution', '≤ ±5 cm to 2 m', 'Simulated 1500 → 1499 mm', '1 µs echo timer (0.17 mm/count)'],
-    ['Drop-off warning', '≥ 1.0 m ahead', 'Simulated: alert 22 ms after change', 'Benewake TF-Luna, UART 115200'],
-    ['Object name / OCR', '≤ 1 s / ≤ 3 s', 'Stage 3 measurement', 'Raspberry Pi 5 4 GB + Camera Module 3'],
+    ['Drop-off warning', '≥ 1.0 m ahead', 'Calculated 1.86 m (−35° from 1.3 m); alert 22 ms (sim.)', 'Benewake TF-Luna + IMU tilt correction'],
+    ['Object name / OCR', '≤ 1 s / ≤ 3 s', 'Laptop: detect 28 ms, e2e 211 ms, OCR 1.2-1.4 s', 'Raspberry Pi 5 4 GB + Camera Module 3'],
     ['Pi fails → alert path', 'unaffected, cue ≤ 1 s', 'Simulated: AI-offline at 666 ms', 'FPGA heartbeat watchdog (GPIO17)'],
-    ['Runtime', '≥ 4 h', 'Calculated 7.3 W → 4.3 h', '10,000 mAh BIS power bank, USB-C'],
+    ['Runtime', '≥ 4 h', 'Calc. (cited Pi 5 W): 4.4 h event-triggered AI; 3.1 h if AI always on', '10,000 mAh BIS power bank, USB-C'],
     ['Pod mass', '≤ 250 g', 'Estimate: likely over (plastic ≈156 g solid)', 'PETG, 2.5 mm wall; lightening in v2'],
   ], 0.45, 1.15, 12.43, [2.75, 1.75, 3.6, 4.33], { size: 12, rowH: 0.43 });
   note(s, 'Architecture rationale:', 'Pi 5 instead of the Stage 1 PYNQ-Z2 (its Cortex-A9 cores are too slow for detection + OCR, and it does not fit the ₹30k grant); FPGA kept for the parallel, cycle-exact, fault-isolated alert path; wired haptics so no radio sits in the safety path.', 5.95);
@@ -356,34 +356,65 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     'At the ₹5.5-7.5k distributor price it is ≈ ₹24-26k.',
     ['Rule: ', 'buy Pi 5 only ≤ ₹9,000, else Pi 4 4 GB.'],
   ], { size: 12, fill: GREEN, line: GREENLINE });
-  card(s, 8.95, 3.8, 3.93, 2.35, 'Power budget (calculated)', [
-    'Pi 5 + camera + YOLO ≈ 6.25 W (assumption)',
-    'FPGA, LiDAR, sensors, motors, losses ≈ 1.1 W',
-    ['Total ≈ 7.3 W → ', '4.3 h on 37 Wh × 85 %'],
+  card(s, 8.95, 3.8, 3.93, 2.35, 'Battery life (calculated, cited Pi 5 W)', [
+    'Pi 5: ≈ 3.0 W idle, ≈ 8.8 W full load (published)',
+    ['AI always on: ', '10.1 W → 3.1 h'],
+    ['Event-triggered AI: ', '7.2 W → 4.4 h (chosen)'],
+    ['AI idle: ', '4.3 W → 7.3 h'],
   ], { size: 12 });
   note(s, 'Procurement status:', 'nothing ordered in Stage 2 (design round). All parts are stocked by Indian distributors; PCB fab is domestic. Full itemised BOM: design/bom/VisionAid_BOM_Power.xlsx.', 6.35);
 }
 
 // ======================================================================================= 11. FPGA evidence
 {
-  const s = content('FPGA Safety Island - Verification', 'SIMULATED');
+  const s = content('FPGA Safety Island - Verification & Implementation', 'SIM + REAL P&R');
   img(s, 'waveform_latency_zoom.png', 0.45, 1.05, 7.5, 5.15);
   table(s, [
     ['Testbench check (Icarus Verilog)', 'Result'],
     ['Distance 1500 / 2500 mm', '1499 / 2499 mm'],
     ['Echo edge → motor ON', 'max 214 ns (5.8 cycles)'],
-    ['Status frames to Pi', '45 OK, 0 bad'],
+    ['Frames to Pi (Verilog / Python)', '192 / 192 decoded, 0 bad'],
     ['LiDAR drop-off', 'alert 22.3 ms after change'],
     ['Pi heartbeat lost', 'AI-offline 666 ms; alerts kept working'],
     ['Sensor unplugged', 'fault flag + FAULT_N low'],
     ['Overall', 'ALL TESTS PASSED'],
   ], 8.15, 1.05, 4.73, [2.6, 2.13], { size: 12, rowH: 0.42 });
-  card(s, 8.15, 4.6, 4.73, 1.65, 'Resources (Yosys, pre-P&R estimate)', [
-    '≈ 2,255 LUT4 equiv. of 8,640 (≈ 26 %)',
-    '568 flip-flops of 6,480 (≈ 9 %)',
-    'Confirm with Gowin EDA on hardware',
+  card(s, 8.15, 4.5, 4.73, 1.75, 'Real implementation (not estimates)', [
+    ['GW1NR-9 (nextpnr): ', 'Fmax 67.9 MHz vs 27 MHz ✓; LUT 17 %, FF 8 %; bitstream .fs built'],
+    ['Zynq-7020 (Vivado 2026.1): ', 'timing met, WNS +30.2 ns'],
   ], { size: 12 });
-  note(s, 'Design:', 'sensors fired one at a time (no crosstalk); distance = t × 0.1715 by shift-multiply; zones escalate instantly, release with 50 mm hysteresis; quiet mode can silence only the "info" level.', 6.4);
+  note(s, 'Cross-verified:', 'the Verilog FPGA accepted a command built by our Python Pi code, and the Python decoder read every byte the FPGA sent - both sides of the link agree.', 6.4);
+}
+
+// ======================================================================================= AI path proof of concept
+{
+  const s = content('AI Path (Raspberry Pi software) - Proof of Concept', 'MEASURED · LAPTOP');
+  img(s, 'ai_path_results.png', 0.45, 1.05, 12.43, 3.6);
+  card(s, 0.45, 4.75, 6.1, 1.5, 'What runs (same code for the Pi 5)', [
+    'YOLOv5n (ONNX) → hazard + side; RapidOCR; Piper TTS English + Hindi; alert manager; IMU floor baseline',
+    'Event-triggered: AI runs only when the FPGA sees an obstacle < 3 m',
+  ], { size: 12 });
+  card(s, 6.75, 4.75, 6.13, 1.5, 'Full-loop replay (FPGA sim bytes → speech)', [
+    '"Step down ahead. Stop."  ·  "Check device: head sensor."',
+    '"person, left, 1.6 metres" - WAV files in design/pi/results/replay',
+  ], { size: 12, fill: GREEN, line: GREENLINE });
+  note(s, 'Honest scope:', 'speeds measured on an i7 laptop (4 threads), NOT on a Pi 5; accuracy is hardware-independent (COCO: 200 images vs human labels; OCR: 64 labels with known text). Pi 5 timing in Stage 3.', 6.38);
+}
+
+// ======================================================================================= sensor analysis
+{
+  const s = content('Sensor Coverage & Drop-off Analysis', 'CALCULATED + SIMULATED');
+  img(s, 'sensor_geometry.png', 0.45, 1.05, 12.43, 3.75);
+  card(s, 0.45, 4.9, 4.0, 1.35, 'Drop-off: target met', [
+    'LiDAR at −35° from 1.3 m sees a 15 cm step 1.86 m ahead (≈ 1.5 s at walking speed)',
+  ], { size: 12, bullets: false, fill: GREEN, line: GREENLINE });
+  card(s, 4.65, 4.9, 4.0, 1.35, 'Found: walking sway', [
+    '±3° chest sway → 25 false alarms in 20 s; IMU-corrected baseline → 0 (now in the Pi code)',
+  ], { size: 12, bullets: false, headColor: RED });
+  card(s, 8.85, 4.9, 4.03, 1.35, 'Found: waist-height gap', [
+    'Under 1 m ahead, 0.3-1.0 m height is not covered → tilt forward sensors −10° in CAD v2',
+  ], { size: 12, bullets: false, headColor: RED });
+  note(s, 'Assumptions:', '1.3 m pod height, 15° ultrasonic half-beam (datasheet class), ±3° sway at 1.8 Hz, 1 cm LiDAR noise - design/analysis/sensor_geometry.py.', 6.38);
 }
 
 // ======================================================================================= 12. maker journey
@@ -423,7 +454,7 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     ['"250M+", "₹4-6 lakh" competitors', 'Cited 2020 data; SmartCane disclosed', 'Accuracy and honest public-search disclosure'],
     ['10-15 pilot users', 'Stage 3, after ethics approval + O&M instructor', 'Honest scope for a design round'],
   ], 0.45, 1.1, 12.43, [3.3, 4.3, 4.83], { size: 12, rowH: 0.52 });
-  note(s, 'Design-stage iterations:', 'FEA v1 → v2 (1.5 mm root fillets); CAD shell 44 → 48 mm after the real-module interference check; 3D-model and pin checks against the official Tang Nano 9K pin map.', 6.35);
+  note(s, 'Found by our own analysis:', 'FEA → 1.5 mm root fillets; CAD clash → shell 44 → 48 mm; sway simulation → IMU floor baseline; power analysis → event-triggered AI; tests → OCR word-order bug fixed.', 6.35);
 }
 
 // ======================================================================================= 14. safety
@@ -434,7 +465,7 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     ['Ultrasonic stuck / unplugged', 'Missed obstacle', 'No-response detector (3 slots) → buzzer "check device" + FAULT_N (simulated)'],
     ['Pi crash / hang', 'No object names / OCR', 'FPGA watchdog → "AI offline" chirp; alert path unaffected (simulated)'],
     ['Bluetooth headset drops', 'No speech', 'Haptics carry all safety alerts; distinct cue'],
-    ['Harness tilt shifts LiDAR', 'False / missed drop-off', 'Stand-still floor calibration + IMU pitch check'],
+    ['Walking sway / tilt', 'False drop-off alarms', 'IMU-corrected floor baseline: 25 → 0 false alarms (simulated)'],
     ['Pi 5 overheats in pod', 'Throttling, slow AI', 'Active cooler + vents in CAD; thermal test in Stage 3'],
     ['Carrier short circuit', 'Pi 5 V rail damage', '500 mA PTC fuse on the header supply'],
     ['Battery fire', 'Burns', 'BIS-certified power bank only - no loose Li-ion cells'],
@@ -469,7 +500,7 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   card(s, 0.45, 5.0, 12.43, 1.15, 'Stage 3 commitment', [
     'A wearable, battery-powered VisionAid prototype ready for supervised functional field testing, with every Stage 2 target (range, alert latency, drop-off distance, runtime, mass) measured on hardware.',
   ], { size: 13, bullets: false, fill: GREEN, line: GREENLINE });
-  note(s, 'Light weeks:', 'Diwali (8 Nov 2026) and end-semester exams are planned as reduced-workload weeks.', 6.3);
+  note(s, 'Research extension:', 'RISC-V soft core (PicoRV32) on the Tang Nano + a tiny spiking neural network to classify sensor patterns (stairs / wall / person) at very low power - once real sensor data exists.', 6.3);
 }
 
 // ======================================================================================= 16. challenges
@@ -480,8 +511,8 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     ['Enclosure clash found in CAD', 'With the real Tang Nano 3D model, the HDMI connector hit the lid by 182 mm³ (CAD interference check).'],
     ['Weight over target', 'Enclosure plastic alone ≈ 156 g if solid (CAD volume); with Pi 5 and sensors the pod likely exceeds 250 g.'],
     ['Budget is tight', 'At the highest Pi 5 quote the BOM is ₹687 over the ₹30k grant.'],
-    ['Pi 5 heat in a closed pod', 'Continuous YOLO in a sealed box risks thermal throttling (to be measured in Stage 3).'],
-    ['LiDAR in sunlight / sharp mount corners', 'TF-Luna range drops in strong sunlight; FEA showed a stress singularity at sharp finger roots (v1).'],
+    ['Battery vs always-on AI', 'With the AI always running, the calculated runtime is 3.1 h - below the 4 h target (cited Pi 5 power).'],
+    ['Sway false alarms + coverage gap', 'Simulation: 25 false drop-off alarms in 20 s with a fixed floor baseline; waist-height gap under 1 m ahead.'],
   ];
   cards.forEach((c, i) => {
     const x = 0.45 + (i % 3) * 4.2, y = 1.15 + Math.floor(i / 3) * 2.55;
@@ -498,10 +529,10 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     ['Enclosure clash', 'Done: shell depth 44 → 48 mm (one parameter); interference now 0 mm³'],
     ['Weight', 'v2: 2.0 mm walls + 20 % infill, merge housings, Pi Compute Module later'],
     ['Budget', 'Pi 5 only ≤ ₹9,000, else Pi 4 4 GB (same design, lower AI frame rate)'],
-    ['Pi heat', 'Active cooler + vents; measure temperature/throttle flags in the closed pod'],
-    ['LiDAR sunlight', 'Amplitude check in the FPGA rejects weak readings; ultrasonic fallback; outdoor test'],
+    ['Battery', 'Done in code: event-triggered AI → 4.4 h (calculated); measure on hardware'],
+    ['Sway / gap', 'Done: IMU floor baseline (0 false alarms, sim.); gap: forward sensors −10° in CAD v2'],
     ['Mount corners', 'Done: 1.5 mm root fillets (FEA v2 converged, FoS ≥ 8.7)'],
-    ['Pi failure', 'Done in design: FPGA watchdog + independent alert path (simulated)'],
+    ['Pi failure / heat', 'FPGA watchdog + independent alert path (simulated); cooler + vents, thermal test'],
   ];
   table(s, [['Risk', 'Mitigation / backup']].concat(rows), 0.45, 1.15, 8.6, [2.2, 6.4], { size: 13, rowH: 0.56 });
   img(s, 'pcb_3d_top.png', 9.25, 1.15, 3.63, 2.6);
@@ -520,14 +551,16 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     'SmartCane - IIT Delhi / Assistech product information (electronicsforu.com).',
     'OrCam MyEye 3 Pro (orcam.com) and Envision Glasses (letsenvision.com) pricing, 2026.',
     'Sipeed Tang Nano 9K wiki and pin map; Benewake TF-Luna datasheet; Raspberry Pi 5 / Camera Module 3 product briefs.',
-    'Tools: KiCad 9, FreeCAD + CalculiX + Gmsh, Icarus Verilog, GTKWave, Yosys, FreeRouting.',
-  ], { size: 14 });
+    'Raspberry Pi 5 power (≈ 3.0 W idle, ≈ 8.8 W full load): raspberry.tips power comparison, 2026.',
+    'COCO val2017 (cocodataset.org); YOLOv5n (Ultralytics); RapidOCR / PP-OCR; Piper TTS (rhasspy).',
+    'Tools: KiCad 9, FreeCAD + CalculiX + Gmsh, Icarus Verilog, GTKWave, Yosys, nextpnr + Apicula, Vivado 2026.1, FreeRouting.',
+  ], { size: 12 });
   card(s, 7.65, 1.1, 5.23, 5.05, 'Image sources', [
     'All diagrams, renders, plots and screenshots in this deck are our own, generated from the project files in github.com/silentaf/viswa_id1:',
     'CAD renders - design/cad (FreeCAD model)',
     'PCB / schematic - design/electronics (KiCad)',
     'FEA plots - design/cad/outputs/fea',
-    'Waveforms - design/fpga (testbench)',
+    'Waveforms - design/fpga (testbench); AI / analysis charts - design/pi, design/analysis',
     'Screenshots - docs/screenshots',
     'Logos: Vishwakarma Awards / Maker Bhavan Foundation (official template).',
   ], { size: 14 });
