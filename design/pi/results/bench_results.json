@@ -1,0 +1,173 @@
+{
+ "machine": {
+  "cpu": "Intel(R) Core(TM) i7-14650HX",
+  "python": "3.11.17",
+  "threads_used": 4,
+  "note": "Speeds measured on the development laptop, NOT on a Raspberry Pi 5."
+ },
+ "protocol": {
+  "bytes_from_verilog": 2112,
+  "frames_decoded": 192,
+  "bad_frames": 0,
+  "first": {
+   "left_mm": 1500,
+   "right_mm": 65535,
+   "head_mm": 65535,
+   "lidar_cm": 150,
+   "flags": 0
+  },
+  "last": {
+   "left_mm": 599,
+   "right_mm": 2499,
+   "head_mm": 65535,
+   "lidar_cm": 150,
+   "flags": 4
+  },
+  "drop_off_frames": 75,
+  "fault_frames": 6,
+  "command_sent_to_verilog_hex": "5a0400969a",
+  "roundtrip_ok": true
+ },
+ "detection_speed": {
+  "images": 24,
+  "input": "640x640",
+  "model": "YOLOv5n (COCO) ONNX, onnxruntime CPU",
+  "mean_ms": 28.262041999672267,
+  "p95_ms": 29.266761997860158,
+  "mean_infer_ms": 22.372161916488647,
+  "fps_equiv": 35.38314747432603,
+  "hazard_classes_seen": {
+   "person": 60,
+   "chair": 3,
+   "potted plant": 1,
+   "stop sign": 1,
+   "car": 4,
+   "truck": 2,
+   "bus": 4,
+   "traffic light": 1,
+   "dining table": 3
+  }
+ },
+ "ocr": {
+  "engine": "RapidOCR (PP-OCR ONNX), English",
+  "clean": {
+   "images": 32,
+   "mean_cer_pct": 1.9126393653018694,
+   "exact_match_pct": 75.0,
+   "mean_ms": 1380.6642398437816,
+   "p95_ms": 2231.63354099961
+  },
+  "degraded": {
+   "images": 32,
+   "mean_cer_pct": 1.832322012331236,
+   "exact_match_pct": 71.875,
+   "mean_ms": 1192.9218525001488,
+   "p95_ms": 2120.1709259985364
+  },
+  "worst": [
+   {
+    "file": "ocr_62.jpg",
+    "text": "Sardar Patel Road",
+    "font": "LiberationSerif-Regular.ttf",
+    "condition": "clean",
+    "read": "Sardar l Patel Road",
+    "ms": 961.3413369988848,
+    "cer": 0.11764705882352941,
+    "exact": false
+   },
+   {
+    "file": "ocr_06.jpg",
+    "text": "Take one tablet twice daily after food",
+    "font": "LiberationSerif-Regular.ttf",
+    "condition": "clean",
+    "read": "Take one tablet twice e daily a after food",
+    "ms": 1937.250816001324,
+    "cer": 0.10526315789473684,
+    "exact": false
+   },
+   {
+    "file": "ocr_21.jpg",
+    "text": "MRP Rs 32.50 incl. of all taxes",
+    "font": "DejaVuSans-Bold.ttf",
+    "condition": "degraded",
+    "read": "MRP Rs 32.50 O incl.of all taxes",
+    "ms": 1358.7999659976049,
+    "cer": 0.10344827586206896,
+    "exact": false
+   }
+  ]
+ },
+ "tts": {
+  "engine": "Piper (offline neural TTS)",
+  "en": [
+   {
+    "text": "Step down ahead. Stop.",
+    "synth_ms": 151.87485299975378,
+    "audio_s": 1.6137868480725623,
+    "rtf": 0.09411085062512846
+   },
+   {
+    "text": "Car, left, 1.4 metres",
+    "synth_ms": 273.03913900323096,
+    "audio_s": 2.5658049886621317,
+    "rtf": 0.10641461070102591
+   },
+   {
+    "text": "Paracetamol Tablets I P 500 milligram",
+    "synth_ms": 185.3575950008235,
+    "audio_s": 2.948934240362812,
+    "rtf": 0.06285579124274357
+   }
+  ],
+  "hi": [
+   {
+    "text": "आगे सीढ़ी है, रुकिए।",
+    "synth_ms": 84.79847199851065,
+    "audio_s": 1.9969160997732427,
+    "rtf": 0.042464714470547775
+   },
+   {
+    "text": "बाईं ओर कार, डेढ़ मीटर",
+    "synth_ms": 149.02543499920284,
+    "audio_s": 2.414875283446712,
+    "rtf": 0.06171144158902536
+   }
+  ]
+ },
+ "end_to_end": {
+  "description": "camera image -> YOLO -> alert manager (+FPGA distance) -> Piper WAV ready",
+  "runs": [
+   {
+    "image": "000000000139.jpg",
+    "phrase": "person, right, 1.4 metres",
+    "total_ms_to_audio_ready": 163.6978580027062
+   },
+   {
+    "image": "000000000724.jpg",
+    "phrase": "stop sign, ahead, 1.4 metres",
+    "total_ms_to_audio_ready": 231.72970400264603
+   },
+   {
+    "image": "000000000785.jpg",
+    "phrase": "person, ahead, 1.4 metres",
+    "total_ms_to_audio_ready": 222.60666600050172
+   },
+   {
+    "image": "000000001532.jpg",
+    "phrase": "car, ahead, 1.4 metres",
+    "total_ms_to_audio_ready": 204.53610100230435
+   },
+   {
+    "image": "000000001584.jpg",
+    "phrase": "bus, ahead, 1.4 metres",
+    "total_ms_to_audio_ready": 210.15112700115424
+   },
+   {
+    "image": "000000001993.jpg",
+    "phrase": "table, left, 1.4 metres",
+    "total_ms_to_audio_ready": 232.3330889994395
+   }
+  ],
+  "mean_ms": 210.84242416812535
+ }
+}

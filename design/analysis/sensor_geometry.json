@@ -1,0 +1,41 @@
+{
+ "dropoff": {
+  "beam_hits_floor_ahead_m": 1.8565924087647492,
+  "flat_range_m": 2.2664808343074276,
+  "range_jump_for_15cm_step_m": 0.26151701934316474,
+  "warning_distance_m": 1.8565924087647492,
+  "warning_time_s_at_1.2mps": 1.5471603406372911,
+  "note": "detected when the step edge is ~1.86 m ahead (beam passes the edge)"
+ },
+ "walking_sway_sim": {
+  "assumptions": "+/-3 deg pitch sway at 1.8 Hz + 0.7 deg jitter, +/-2 cm bob, 1 cm LiDAR noise, flat floor, 20 s",
+  "max_range_excursion_m": 0.2987993688474391,
+  "false_alarms_fixed_baseline": 25,
+  "false_alarms_imu_compensated": 0,
+  "margin_left_with_imu_m": 0.029949376754408424
+ },
+ "coverage": {
+  "head_sensor_band_at_1m_m": [
+   1.476326980708465,
+   2.13909963117728
+  ],
+  "forward_band_at_1m_m": [
+   1.0320508075688775,
+   1.5679491924311226
+  ],
+  "forward_band_at_2m_m": [
+   0.7641016151377547,
+   1.8358983848622454
+  ],
+  "side_sensors_horizontal_deg": [
+   -30.0,
+   -0.0,
+   0.0,
+   30.0
+  ],
+  "cane_covers_height_m": [
+   0.0,
+   0.3
+  ]
+ }
+}

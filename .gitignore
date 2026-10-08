@@ -18,3 +18,9 @@ __pycache__/
 !design/electronics/outputs/*.pdf
 !design/electronics/outputs/gerbers/*.pdf
 design/cad/outputs/fea/MountFEA.FCStd
+design/fpga/impl/*.json
+design/fpga/impl/placement.svg
+design/fpga/vivado/*.log
+design/fpga/vivado/.Xil/
+design/fpga/vivado/clockInfo.txt
+__pycache__/

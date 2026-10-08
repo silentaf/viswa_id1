@@ -1,0 +1,9 @@
+    0.02 s  P1  chair, ahead, 1.5 metres             L= 1500 R=65535 H=65535 floor=150 cm flags=00000000
+    0.52 s  P1  stop sign, ahead, 1.6 metres         L= 1599 R= 2499 H=65535 floor=150 cm flags=00000000
+    1.00 s  P0  Step down ahead. Stop.               L= 1599 R= 2499 H=65535 floor=150 cm flags=00010000
+    1.02 s  P1  person, ahead, 1.6 metres            L= 1599 R= 2499 H=65535 floor=150 cm flags=00010000
+    1.52 s  P1  person, right, 2.5 metres            L= 1599 R= 2499 H=65535 floor=150 cm flags=00010000
+    2.02 s  P1  person, left, 1.6 metres             L= 1599 R= 2499 H=65535 floor=150 cm flags=00010000
+    3.74 s  P0  Check device: head sensor.           L=  599 R= 2499 H=65535 floor=150 cm flags=00000100
+
+STATS {'frames': 192, 'detections_run': 8, 'ocr_run': 0, 'spoken': 7, 'floor_cmds': 1}

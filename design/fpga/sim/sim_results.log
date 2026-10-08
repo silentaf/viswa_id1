@@ -9,7 +9,7 @@ VisionAid safety-island simulation (27 MHz, 3 x 33 ms ultrasonic slots)
 [  910.0 ms] PASS  T2 worst-case echo -> motor latency < 1 us (target <= 1 ms)
 [  910.0 ms] PASS  T3 Pi status frames received with valid checksums
       frames ok=45 bad=0, last: L=849 R=2499 LiDAR=150 cm flags=00000000
-[  960.4 ms] PASS  T4 Pi command accepted: LiDAR baseline = 150 cm
+[  960.4 ms] PASS  T4 Python-built Pi command accepted: LiDAR baseline = 150 cm
 [  960.4 ms] PASS  T4 no drop-off alert on a flat floor
       drop-off detected 22.3 ms after the floor reading changed (3-frame filter at 100 Hz)
 [  982.8 ms] PASS  T4 drop-off alert within 50 ms
@@ -19,5 +19,6 @@ VisionAid safety-island simulation (27 MHz, 3 x 33 ms ultrasonic slots)
 [ 3349.9 ms] PASS  T5 AI offline detected within 1 s
 [ 3459.9 ms] PASS  T5 obstacle alert still works with the Pi offline (FPGA-only path)
 [ 3859.9 ms] PASS  T6 unplugged sensor -> fault flag + FAULT_N low
+      Verilog-side decoder: 192 good frames, 0 bad
 RESULT: ALL TESTS PASSED (0 failures)
-tb/tb_visionaid.v:234: $finish called at 3859907403670 (1ps)
+tb/tb_visionaid.v:242: $finish called at 3859907403670 (1ps)

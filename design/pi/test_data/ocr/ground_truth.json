@@ -1,0 +1,386 @@
+[
+ {
+  "file": "ocr_00.jpg",
+  "text": "Paracetamol Tablets IP 500 mg",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_01.jpg",
+  "text": "Paracetamol Tablets IP 500 mg",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_02.jpg",
+  "text": "Paracetamol Tablets IP 500 mg",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_03.jpg",
+  "text": "Paracetamol Tablets IP 500 mg",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_04.jpg",
+  "text": "Take one tablet twice daily after food",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_05.jpg",
+  "text": "Take one tablet twice daily after food",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_06.jpg",
+  "text": "Take one tablet twice daily after food",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_07.jpg",
+  "text": "Take one tablet twice daily after food",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_08.jpg",
+  "text": "EXP 08/2027  Batch B2341",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_09.jpg",
+  "text": "EXP 08/2027  Batch B2341",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_10.jpg",
+  "text": "EXP 08/2027  Batch B2341",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_11.jpg",
+  "text": "EXP 08/2027  Batch B2341",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_12.jpg",
+  "text": "Store below 25 C away from light",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_13.jpg",
+  "text": "Store below 25 C away from light",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_14.jpg",
+  "text": "Store below 25 C away from light",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_15.jpg",
+  "text": "Store below 25 C away from light",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_16.jpg",
+  "text": "Amoxicillin Capsules 250 mg",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_17.jpg",
+  "text": "Amoxicillin Capsules 250 mg",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_18.jpg",
+  "text": "Amoxicillin Capsules 250 mg",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_19.jpg",
+  "text": "Amoxicillin Capsules 250 mg",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_20.jpg",
+  "text": "MRP Rs 32.50 incl. of all taxes",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_21.jpg",
+  "text": "MRP Rs 32.50 incl. of all taxes",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_22.jpg",
+  "text": "MRP Rs 32.50 incl. of all taxes",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_23.jpg",
+  "text": "MRP Rs 32.50 incl. of all taxes",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_24.jpg",
+  "text": "PLATFORM NO 2",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_25.jpg",
+  "text": "PLATFORM NO 2",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_26.jpg",
+  "text": "PLATFORM NO 2",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_27.jpg",
+  "text": "PLATFORM NO 2",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_28.jpg",
+  "text": "EXIT",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_29.jpg",
+  "text": "EXIT",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_30.jpg",
+  "text": "EXIT",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_31.jpg",
+  "text": "EXIT",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_32.jpg",
+  "text": "LADIES TOILET",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_33.jpg",
+  "text": "LADIES TOILET",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_34.jpg",
+  "text": "LADIES TOILET",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_35.jpg",
+  "text": "LADIES TOILET",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_36.jpg",
+  "text": "BUS STOP",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_37.jpg",
+  "text": "BUS STOP",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_38.jpg",
+  "text": "BUS STOP",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_39.jpg",
+  "text": "BUS STOP",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_40.jpg",
+  "text": "PHARMACY",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_41.jpg",
+  "text": "PHARMACY",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_42.jpg",
+  "text": "PHARMACY",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_43.jpg",
+  "text": "PHARMACY",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_44.jpg",
+  "text": "CAUTION WET FLOOR",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_45.jpg",
+  "text": "CAUTION WET FLOOR",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_46.jpg",
+  "text": "CAUTION WET FLOOR",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_47.jpg",
+  "text": "CAUTION WET FLOOR",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_48.jpg",
+  "text": "Room 204 Electronics Lab",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_49.jpg",
+  "text": "Room 204 Electronics Lab",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_50.jpg",
+  "text": "Room 204 Electronics Lab",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_51.jpg",
+  "text": "Room 204 Electronics Lab",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_52.jpg",
+  "text": "Pull to open",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_53.jpg",
+  "text": "Pull to open",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_54.jpg",
+  "text": "Pull to open",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_55.jpg",
+  "text": "Pull to open",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_56.jpg",
+  "text": "Mind the step",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_57.jpg",
+  "text": "Mind the step",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_58.jpg",
+  "text": "Mind the step",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_59.jpg",
+  "text": "Mind the step",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_60.jpg",
+  "text": "Sardar Patel Road",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_61.jpg",
+  "text": "Sardar Patel Road",
+  "font": "DejaVuSans-Bold.ttf",
+  "condition": "degraded"
+ },
+ {
+  "file": "ocr_62.jpg",
+  "text": "Sardar Patel Road",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "clean"
+ },
+ {
+  "file": "ocr_63.jpg",
+  "text": "Sardar Patel Road",
+  "font": "LiberationSerif-Regular.ttf",
+  "condition": "degraded"
+ }
+]

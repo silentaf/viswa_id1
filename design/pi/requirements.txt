@@ -1,0 +1,8 @@
+# Raspberry Pi 5 (Raspberry Pi OS Bookworm, Python 3.11) - same versions tested on the dev laptop
+numpy
+opencv-python-headless==5.0.0
+onnxruntime==1.30.0
+rapidocr-onnxruntime
+piper-tts
+pyserial
+# on the Pi only: picamera2 (apt), gpiozero, smbus2

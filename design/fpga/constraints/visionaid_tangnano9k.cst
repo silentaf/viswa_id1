@@ -1,24 +1,48 @@
 // VisionAid safety island - Tang Nano 9K (GW1NR-LV9QN88PC6/I5) physical constraints.
 // Pin numbers from the Sipeed Tang Nano 9K pin map; all user I/O on the 3.3 V banks (left header).
-IO_LOC "clk" 52;          IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "rst_n" 4;         IO_PORT "rst_n" PULL_MODE=UP;                 // on-board button S1
-IO_LOC "us_trig[0]" 25;   IO_PORT "us_trig[0]" IO_TYPE=LVCMOS33 DRIVE=8;
-IO_LOC "us_echo[0]" 26;   IO_PORT "us_echo[0]" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
-IO_LOC "us_trig[1]" 27;   IO_PORT "us_trig[1]" IO_TYPE=LVCMOS33 DRIVE=8;
-IO_LOC "us_echo[1]" 28;   IO_PORT "us_echo[1]" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
-IO_LOC "us_trig[2]" 29;   IO_PORT "us_trig[2]" IO_TYPE=LVCMOS33 DRIVE=8;
-IO_LOC "us_echo[2]" 30;   IO_PORT "us_echo[2]" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
-IO_LOC "lidar_tx" 33;     IO_PORT "lidar_tx" IO_TYPE=LVCMOS33;
-IO_LOC "lidar_rx" 34;     IO_PORT "lidar_rx" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "pi_txd" 40;       IO_PORT "pi_txd" IO_TYPE=LVCMOS33 PULL_MODE=UP;  // from Pi GPIO14
-IO_LOC "pi_rxd" 35;       IO_PORT "pi_rxd" IO_TYPE=LVCMOS33;               // to Pi GPIO15
-IO_LOC "pi_hb" 41;        IO_PORT "pi_hb" IO_TYPE=LVCMOS33 PULL_MODE=DOWN; // from Pi GPIO17
-IO_LOC "fpga_fault_n" 42; IO_PORT "fpga_fault_n" IO_TYPE=LVCMOS33;         // to Pi GPIO27
-IO_LOC "mot_l" 51;        IO_PORT "mot_l" IO_TYPE=LVCMOS33 DRIVE=8;
-IO_LOC "mot_r" 53;        IO_PORT "mot_r" IO_TYPE=LVCMOS33 DRIVE=8;
-IO_LOC "buzz" 54;         IO_PORT "buzz" IO_TYPE=LVCMOS33 DRIVE=8;
-IO_LOC "btn_read_n" 55;   IO_PORT "btn_read_n" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "btn_mode_n" 56;   IO_PORT "btn_mode_n" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "btn_quiet_n" 57;  IO_PORT "btn_quiet_n" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "led_n[0]" 10;     IO_LOC "led_n[1]" 11;  IO_LOC "led_n[2]" 13;
-IO_LOC "led_n[3]" 14;     IO_LOC "led_n[4]" 15;  IO_LOC "led_n[5]" 16;
+IO_LOC "clk" 52;
+IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "rst_n" 4;
+IO_PORT "rst_n" PULL_MODE=UP;  // on-board button S1
+IO_LOC "us_trig[0]" 25;
+IO_PORT "us_trig[0]" IO_TYPE=LVCMOS33 DRIVE=8;
+IO_LOC "us_echo[0]" 26;
+IO_PORT "us_echo[0]" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
+IO_LOC "us_trig[1]" 27;
+IO_PORT "us_trig[1]" IO_TYPE=LVCMOS33 DRIVE=8;
+IO_LOC "us_echo[1]" 28;
+IO_PORT "us_echo[1]" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
+IO_LOC "us_trig[2]" 29;
+IO_PORT "us_trig[2]" IO_TYPE=LVCMOS33 DRIVE=8;
+IO_LOC "us_echo[2]" 30;
+IO_PORT "us_echo[2]" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
+IO_LOC "lidar_tx" 33;
+IO_PORT "lidar_tx" IO_TYPE=LVCMOS33;
+IO_LOC "lidar_rx" 34;
+IO_PORT "lidar_rx" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "pi_txd" 40;
+IO_PORT "pi_txd" IO_TYPE=LVCMOS33 PULL_MODE=UP;  // from Pi GPIO14
+IO_LOC "pi_rxd" 35;
+IO_PORT "pi_rxd" IO_TYPE=LVCMOS33;  // to Pi GPIO15
+IO_LOC "pi_hb" 41;
+IO_PORT "pi_hb" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;  // from Pi GPIO17
+IO_LOC "fpga_fault_n" 42;
+IO_PORT "fpga_fault_n" IO_TYPE=LVCMOS33;  // to Pi GPIO27
+IO_LOC "mot_l" 51;
+IO_PORT "mot_l" IO_TYPE=LVCMOS33 DRIVE=8;
+IO_LOC "mot_r" 53;
+IO_PORT "mot_r" IO_TYPE=LVCMOS33 DRIVE=8;
+IO_LOC "buzz" 54;
+IO_PORT "buzz" IO_TYPE=LVCMOS33 DRIVE=8;
+IO_LOC "btn_read_n" 55;
+IO_PORT "btn_read_n" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "btn_mode_n" 56;
+IO_PORT "btn_mode_n" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "btn_quiet_n" 57;
+IO_PORT "btn_quiet_n" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "led_n[0]" 10;
+IO_LOC "led_n[1]" 11;
+IO_LOC "led_n[2]" 13;
+IO_LOC "led_n[3]" 14;
+IO_LOC "led_n[4]" 15;
+IO_LOC "led_n[5]" 16;
