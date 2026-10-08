@@ -184,6 +184,17 @@ def build():
     bolt = prim(body, 'SubtractiveCylinder', 'BoltHole', Radius=P['BoltD'] / 2, Height=4 * (T + G))
     bolt.Placement = App.Placement(V(-2 * (T + G), -L, zc), App.Rotation(V(0, 1, 0), 90))
     doc.recompute()
+    # FEA iteration v1 -> v2: 1.5 mm fillet where the fingers meet the back wall (removes the sharp-corner
+    # stress singularity found in the mesh-convergence study, see outputs/fea/README.md)
+    root = [('Edge%d' % (i + 1)) for i, e in enumerate(bolt.Shape.Edges)
+            if all(abs(v.Point.y) < 1e-6 for v in e.Vertexes)
+            and max(abs(v.Point.x) for v in e.Vertexes) <= G / 2 + T + 1e-6
+            and max(abs(v.Point.z - zc) for v in e.Vertexes) <= R + 1e-6]
+    ff = body.newObject('PartDesign::Fillet', 'FingerRootFillet')
+    ff.Base = (bolt, root)
+    ff.Radius = 1.5
+    doc.recompute()
+    print('finger-root fillet on %d edges, valid=%s' % (len(root), ff.Shape.isValid()))
 
     # ------------------------------------------------ front lid
     lid = doc.addObject('PartDesign::Body', 'FrontLid')

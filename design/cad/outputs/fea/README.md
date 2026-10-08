@@ -25,7 +25,7 @@
 
 - **v1 (sharp roots):** the finger-root stress **keeps rising as the mesh is refined**: 1.59 → 2.20 MPa under load A and 1.62 → 2.52 MPa under load B. That is the signature of a **stress singularity at a sharp corner**. The true peak in a printed part is set by the corner radius, so the v1 result cannot be trusted.
 - **v2 (1.5 mm root fillet):** the root stress **converges** to 1.76–1.82 MPa under A and 2.40–2.42 MPa under B, with < 3 % change across meshes.
-- **Design iteration:** v1 → v2 adds 1.5 mm fillets at the finger roots. **To do:** add the same fillet to the finger roots in `VisionAid_Pod.FCStd` (a PartDesign Fillet). Good to do yourself in the GUI and screenshot as your own edit.
+- **Design iteration:** v1 → v2 adds 1.5 mm fillets at the finger roots. This is now in the pod CAD as the `FingerRootFillet` feature (8 edges, R 1.5 mm).
 - **Where the peak sits:** the highest stress (~4–6 MPa) is at the bolt hole, where the rigid "fixed" support concentrates load. A real bolt spreads that load, so the peak is conservative.
 - **Verdict:** every case has **FoS ≥ 8.7** against the ≥ 3 requirement.
 

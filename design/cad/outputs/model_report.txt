@@ -1,4 +1,4 @@
-BaseShell      valid=True volume=65.3 cm3  bbox X -56.0..56.0 Y -17.5..44.0 Z -42.0..42.0
+BaseShell      valid=True volume=65.4 cm3  bbox X -56.0..56.0 Y -17.5..44.0 Z -42.0..42.0
 FrontAssembly  valid=True volume=53.4 cm3  bbox X -57.9..57.9 Y 44.0..76.6 Z -51.1..47.2
 interference RPi5_PCB                 0.00 mm3
 interference RPi5_ActiveCooler        0.00 mm3

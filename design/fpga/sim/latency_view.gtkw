@@ -1,0 +1,21 @@
+[*] VisionAid - echo edge -> motor ON (simulation)
+[dumpfile] "sim/visionaid.vcd"
+[timestart] 400661000000
+[size] 1920 1050
+[pos] 0 0
+*-18.000000 400661256533 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 260
+[signals_width] 220
+[sst_expanded] 1
+@28
+tb_visionaid.clk
+@22
+tb_visionaid.echo[2:0]
+tb_visionaid.dut.zl[1:0]
+@28
+tb_visionaid.mot_l
+tb_visionaid.mot_r
+@22
+tb_visionaid.dut.d0[15:0]
+[pattern_trace] 1
+[pattern_trace] 0
