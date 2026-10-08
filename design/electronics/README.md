@@ -69,7 +69,7 @@ Open the project in the KiCad GUI with `tools/kicad.sh kicad design/electronics/
 | `VisionAid_Carrier_BOM.csv` | Bill of materials (on-board parts) |
 | `VisionAid_Carrier_pos.csv` | Pick-and-place positions |
 | `VisionAid_Carrier.step` | 3D model for the enclosure CAD |
-| `pcb_3d_top.png` / `pcb_3d_iso.png` | Board renders. Component 3D bodies are missing in these renders; use the STEP file or the KiCad GUI 3D viewer for full renders. |
+| `pcb_3d_top.png` / `pcb_3d_iso.png` | Board renders with component 3D models (Tang Nano 9K: simplified model in `3d/`) |
 | `ERC_report.txt` / `DRC_report.txt` | Verification reports |
 
 ## Not on the PCB BOM (buy separately in Stage 3)

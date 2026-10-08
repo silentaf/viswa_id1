@@ -96,7 +96,7 @@ Nothing affordable combines head-level and drop-off warnings with a **bounded al
 | Object name spoken | ≤ 1.0 s | Stage 3 measurement |
 | OCR read-aloud | ≤ 3 s | Stage 3 measurement |
 | Runtime | ≥ 4 h | *Calculated: 7.3 W average → 4.3 h on a 10,000 mAh bank* (to be measured) |
-| Pod mass | ≤ 250 g | *Estimated: ≈ 140 g of PETG for the enclosure (solid volume 118 cm³) plus electronics*. Likely over the target; a v2 weight reduction is planned. |
+| Pod mass | ≤ 250 g | *Estimated: ≈ 156 g of PETG if printed solid (CAD volume 123 cm³ × 1.27 g/cm³; less with normal infill) plus electronics*. Likely over the target; a v2 weight reduction is planned. |
 
 ## 6. Hardware (see `design/` for every file)
 
@@ -108,7 +108,7 @@ Nothing affordable combines head-level and drop-off warnings with a **bounded al
   - **ALL TESTS PASSED** in simulation;
   - **≈ 26 % of the LUTs and 9 % of the flip-flops** of the GW1NR-9 *(Yosys synthesis estimate)*.
 - **Enclosure** (FreeCAD, parametric):
-  - 112 × 84 × 44 mm PETG shell, angled sensor housings, GoPro-style mount, vents;
+  - 112 × 84 × 48 mm PETG shell (depth raised from 44 mm after the interference check with the real Tang Nano 3D model found a clash), angled sensor housings, GoPro-style mount with 1.5 mm root fillets, vents;
   - **0 mm³ interference** with the electronics *(CAD check)*.
 - **Mount FEA** (FreeCAD FEM + CalculiX, PETG; *simulated*):
   - 50 N down and 20 N sideways, worst **factor of safety 8.7** (requirement ≥ 3).

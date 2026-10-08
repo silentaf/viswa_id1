@@ -2978,6 +2978,17 @@
 			(uuid "4e2f1bf7-e6a4-4eab-9b2f-f8f8b9800fa9")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/TangNano9K_Module.wrl"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")

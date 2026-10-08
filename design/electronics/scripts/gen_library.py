@@ -105,6 +105,8 @@ def footprint():
             shape = S('rect') if n == 1 else S('oval')
             fp.append([S('pad'), str(n), S('thru_hole'), shape, [S('at'), round(x, 3), round(y, 3)],
                        [S('size'), 1.7, 1.7], [S('drill'), 1.0], [S('layers'), '*.Cu', '*.Mask']])
+    fp.append([S('model'), '${KIPRJMOD}/3d/TangNano9K_Module.wrl',
+               [S('offset'), [S('xyz'), 0, 0, 0]], [S('scale'), [S('xyz'), 1, 1, 1]], [S('rotate'), [S('xyz'), 0, 0, 0]]])
     fp.append([S('embedded_fonts'), S('no')])
     return fp
 

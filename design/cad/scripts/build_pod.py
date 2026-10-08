@@ -25,7 +25,7 @@ PCB_STEP = os.path.join(CAD, '..', 'electronics', 'outputs', 'VisionAid_Carrier.
 V = App.Vector
 
 PARAMS = [  # alias, value, unit/comment
-    ('PodW', 112, 'outer width (X)'), ('PodH', 84, 'outer height (Z)'), ('BaseD', 44, 'base shell depth (Y)'),
+    ('PodW', 112, 'outer width (X)'), ('PodH', 84, 'outer height (Z)'), ('BaseD', 48, 'base shell depth (Y); 44 -> 48 after the Tang Nano 3D model showed an HDMI-connector clash'),
     ('WallT', 2.5, 'wall thickness'), ('CornerR', 8, 'corner radius'), ('LidT', 3, 'lid thickness'),
     ('PiBoss', 4, 'Pi standoff boss height'), ('StandH', 20, 'Pi -> carrier standoff'),
     ('SensW', 48, 'ultrasonic housing width'), ('SensH', 26, 'ultrasonic housing height'),
@@ -304,7 +304,7 @@ def build():
         pcb.Shape = sh
         elec.addObject(pcb)
     # Tang Nano 9K on 8.5 mm sockets (module footprint centre at board x=52.2, y=30 -> pod coords)
-    block('TangNano9K', -(52.2 - 42.5) - 32.5, yc + 1.6 + 8.5, 28 - 30 - 11.5, 65, 1.6, 23, (0.15, 0.15, 0.15))
+    # (the Tang Nano 9K module + its sockets are now part of the KiCad STEP via 3d/TangNano9K_Module.step)
     for i in range(4):
         st = doc.addObject('Part::Cylinder', 'Standoff%d' % (i + 1))
         st.Radius, st.Height = 2.5, P['StandH']

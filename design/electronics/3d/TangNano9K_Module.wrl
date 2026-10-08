@@ -1,0 +1,15 @@
+#VRML V2.0 utf8
+# Sipeed Tang Nano 9K on 8.5 mm sockets - simplified (VisionAid)
+Transform { translation -4.5000 0.0000 1.6732 children [ Shape { appearance Appearance { material Material { diffuseColor 0.08 0.08 0.08 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 1.0000 24.0157 3.3465 } } ] }
+Transform { translation 4.5000 0.0000 1.6732 children [ Shape { appearance Appearance { material Material { diffuseColor 0.08 0.08 0.08 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 1.0000 24.0157 3.3465 } } ] }
+Transform { translation 0.0000 0.0000 3.6614 children [ Shape { appearance Appearance { material Material { diffuseColor 0.06 0.06 0.07 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 10.0000 25.5906 0.6299 } } ] }
+Transform { translation 0.0000 1.5748 4.1535 children [ Shape { appearance Appearance { material Material { diffuseColor 0.15 0.15 0.15 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 3.9370 3.9370 0.3543 } } ] }
+Transform { translation 0.0000 11.4567 4.6063 children [ Shape { appearance Appearance { material Material { diffuseColor 0.80 0.80 0.82 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 3.5433 2.9528 1.2598 } } ] }
+Transform { translation 0.0000 -10.8268 5.0787 children [ Shape { appearance Appearance { material Material { diffuseColor 0.80 0.80 0.82 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 5.9055 4.3307 2.2047 } } ] }
+Transform { translation 0.0000 -4.7244 4.2126 children [ Shape { appearance Appearance { material Material { diffuseColor 0.92 0.90 0.82 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 7.0866 1.9685 0.4724 } } ] }
+Transform { translation -2.3622 8.6614 4.0748 children [ Shape { appearance Appearance { material Material { diffuseColor 0.95 0.95 0.90 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 0.6299 0.3150 0.1969 } } ] }
+Transform { translation -1.4173 8.6614 4.0748 children [ Shape { appearance Appearance { material Material { diffuseColor 0.95 0.95 0.90 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 0.6299 0.3150 0.1969 } } ] }
+Transform { translation -0.4724 8.6614 4.0748 children [ Shape { appearance Appearance { material Material { diffuseColor 0.95 0.95 0.90 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 0.6299 0.3150 0.1969 } } ] }
+Transform { translation 0.4724 8.6614 4.0748 children [ Shape { appearance Appearance { material Material { diffuseColor 0.95 0.95 0.90 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 0.6299 0.3150 0.1969 } } ] }
+Transform { translation 1.4173 8.6614 4.0748 children [ Shape { appearance Appearance { material Material { diffuseColor 0.95 0.95 0.90 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 0.6299 0.3150 0.1969 } } ] }
+Transform { translation 2.3622 8.6614 4.0748 children [ Shape { appearance Appearance { material Material { diffuseColor 0.95 0.95 0.90 specularColor 0.2 0.2 0.2 shininess 0.3 } } geometry Box { size 0.6299 0.3150 0.1969 } } ] }
