@@ -373,17 +373,23 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   table(s, [
     ['Testbench check (Icarus Verilog)', 'Result'],
     ['Distance 1500 / 2500 mm', '1499 / 2499 mm'],
-    ['Echo edge → motor ON', '≤ 214 ns (monitor bound, 4 events); 136 ns on waveform'],
-    ['Frames to Pi (Verilog / Python)', '192 / 192 decoded, 0 bad'],
+    ['Echo edge → motor ON', '136 ns wave; ≤ 214 ns bound'],
+    ['Frames to Pi (Verilog / Py)', '192 / 192 decoded, 0 bad'],
     ['LiDAR drop-off', 'alert 22.3 ms after change'],
-    ['Pi heartbeat lost', 'AI-offline 666 ms; alerts kept working'],
+    ['Pi heartbeat lost', 'AI-offline 666 ms; alerts on'],
     ['Sensor unplugged', 'fault flag + FAULT_N low'],
     ['Overall', 'ALL TESTS PASSED'],
-  ], 8.15, 1.05, 4.73, [2.6, 2.13], { size: 12, rowH: 0.42 });
-  card(s, 8.15, 4.5, 4.73, 1.75, 'Place & route + static timing (no hardware yet)', [
-    ['GW1NR-9 (nextpnr): ', 'Fmax 67.9 MHz vs 27 MHz ✓; LUT 17 %, FF 8 %; bitstream .fs built'],
-    ['Zynq-7020 (Vivado 2026.1): ', 'timing met, WNS +30.2 ns'],
-  ], { size: 12 });
+  ], 8.15, 1.05, 4.73, [2.45, 2.28], { size: 11, rowH: 0.3 });
+  table(s, [
+    ['27 MHz', 'GW1NR-9 nextpnr', 'Zynq-7020 Vivado'],
+    ['LUTs', '1,512 / 8,640 (17 %)', '653 / 53,200 (1.2 %)'],
+    ['Flip-flops', '568 / 6,480 (8 %)', '580 / 106,400 (0.55 %)'],
+    ['ALU / DSP', '914 ALU (14 %)', '1 DSP (0.45 %)'],
+    ['Block RAM', '0 / 26', '0 / 140'],
+    ['I/O', '26 / 276', 'n/a (OOC run)'],
+    ['Timing', 'Fmax 67.9 MHz, met', 'WNS +30.2 ns, met'],
+  ], 8.15, 3.75, 4.73, [1.05, 1.85, 1.83], { size: 10, rowH: 0.28 });
+  caption(s, 'Routed results (GW1NR-9 bitstream built; Vivado out-of-context). No hardware yet.', 8.15, 6.0, 4.73);
   note(s, 'Cross-verified:', 'the Verilog FPGA accepted a command built by our Python Pi code, and the Python decoder read every byte the FPGA sent - both sides of the link agree.', 6.4);
 }
 
