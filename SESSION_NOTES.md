@@ -8,7 +8,7 @@
 
 ## Status right now
 
-**9 Oct: full numbers audit done.** Every deck figure was re-checked against the logs/reports, the citations against their sources, and prices against live listings. Fixes: BOM ₹33,945 (₹3,945 over; Pi 5 / Tang Nano / TF-Luna out of stock), runtime 4.3 h (assumes ~50 % AI duty), latency 136 ns waveform vs ≤ 214 ns testbench bound, Manduchi survey stats, OrCam US$4,250, detection-chart labels. New evidence files: `design/cad/outputs/interference_check_44mm.txt`, `design/electronics/outputs/DRC_ERC_parity_recheck.txt`, `design/pi/results/ocr_word_order_check.txt`. **Next:** user fills IDs + photos, then exports the PDF.
+**9 Oct: full numbers audit done.** Every deck figure was re-checked against the logs/reports, the citations against their sources, and prices against live listings. Fixes: BOM ₹33,945 (₹3,945 over; Pi 5 / Tang Nano / TF-Luna out of stock), runtime 4.3 h (assumes ~50 % AI duty), latency 136 ns waveform vs ≤ 214 ns testbench bound, Manduchi survey stats, OrCam US$4,250, detection-chart labels. New evidence files: `design/cad/outputs/interference_check_44mm.txt`, `design/electronics/outputs/DRC_ERC_parity_recheck.txt`, `design/pi/results/ocr_word_order_check.txt`. Slide 11 now has the full FPGA/Vivado utilisation table. **New slide 13: pothole detector fine-tuned** (YOLO11n, public CC BY 4.0 data; held-out test P 0.64 / R 0.30 / mAP50 0.37; 26 ms laptop CPU) - `design/pi/training/`, env `tools/train-env` (torch cu128 + ultralytics). Deck = 21 slides. Option open: retrain on a larger dataset (full Roboflow set needs the user's free account). **Next:** user fills IDs + photos, then exports the PDF.
 
 ### Done
 

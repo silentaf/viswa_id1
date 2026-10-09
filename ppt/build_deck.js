@@ -408,6 +408,32 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   note(s, 'Honest scope:', 'speeds measured on an i7 laptop (4 threads), NOT on a Pi 5; 211 ms excludes camera capture and audio playback. Accuracy is hardware-independent (COCO: 200 images vs human labels; OCR: 64 synthetic labels). Pi 5 timing in Stage 3.', 6.38);
 }
 
+// ======================================================================================= pothole fine-tune
+{
+  const s = content('Model Training - Pothole Detector (fine-tuned)', 'TRAINED · HELD-OUT TEST');
+  img(s, 'pothole_test_pred.png', 0.45, 1.05, 5.0, 4.98);
+  caption(s, 'Our model on 16 held-out test images (boxes = its predictions, number = confidence)', 0.45, 6.06, 5.0);
+  table(s, [
+    ['Held-out test split (100 images, 269 potholes)', 'Result'],
+    ['Precision', '0.64'],
+    ['Recall', '0.30'],
+    ['mAP50 / mAP50-95', '0.37 / 0.15'],
+    ['Speed, laptop CPU, 4 threads (not Pi 5)', '26 ms / image'],
+    ['Before fine-tuning (COCO model)', 'no pothole class at all'],
+  ], 5.75, 1.05, 7.13, [4.83, 2.3], { size: 12, rowH: 0.36 });
+  card(s, 5.75, 3.35, 3.47, 2.8, 'How it was trained', [
+    'YOLO11n, COCO-pretrained start, 100 epochs, RTX 5060 GPU, 7.7 min',
+    'Public dataset, CC BY 4.0: 100 train / 100 valid / 100 test images',
+    'Checked: no train-test image overlap (name + pixel hash, incl. flips)',
+  ], { size: 12 });
+  card(s, 9.41, 3.35, 3.47, 2.8, 'Honest limits', [
+    'Finds ~3 in 10 potholes; ~2 in 3 detections are real',
+    'Small set of mostly non-Indian road photos, taken from vehicle / hand height',
+    'Stage 3: Indian, chest-height data from our own camera',
+  ], { size: 12, headColor: RED });
+  note(s, 'Why it matters:', 'the whole training pipeline (data checks → fine-tune → held-out test → ONNX for the Pi) works end to end; files in design/pi/training.', 6.38);
+}
+
 // ======================================================================================= sensor analysis
 {
   const s = content('Sensor Coverage & Drop-off Analysis', 'CALCULATED + SIMULATED');
@@ -559,16 +585,17 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     'OrCam MyEye 3 Pro US$4,250 (nelowvision.com); Envision Glasses US$1,899 / 3,499 (shop.letsenvision.com) - checked 9 Oct 2026.',
     'Sipeed Tang Nano 9K wiki and pin map; Benewake TF-Luna datasheet; Raspberry Pi 5 / Camera Module 3 product briefs.',
     'Raspberry Pi 5 power (≈ 3.0 W idle, ≈ 8.8 W full load): raspberry.tips power comparison, 2026. Part prices: kspelectronics.in, electronifyindia.com, probots.co.in, thingbits.in (9 Oct 2026).',
-    'COCO val2017 (cocodataset.org); YOLOv5n (Ultralytics); RapidOCR / PP-OCR; Piper TTS (rhasspy).',
+    'COCO val2017 (cocodataset.org); YOLOv5n, YOLO11n (Ultralytics); RapidOCR / PP-OCR; Piper TTS (rhasspy). Pothole data: Roboflow Universe "Potholes Detection" (project-ssayl), CC BY 4.0, via Hugging Face Ryukijano/Pothole-detection-Yolov8.',
     'Tools: KiCad 9, FreeCAD + CalculiX + Gmsh, Icarus Verilog, GTKWave, Yosys, nextpnr + Apicula, Vivado 2026.1, FreeRouting.',
   ], { size: 12 });
   card(s, 7.65, 1.1, 5.23, 5.05, 'Image sources', [
-    'All diagrams, renders, plots and screenshots in this deck are our own, generated from the project files in github.com/silentaf/viswa_id1:',
+    'All diagrams, renders, plots and screenshots in this deck are our own, generated from the project files in github.com/silentaf/viswa_id1 (one exception below):',
     'CAD renders - design/cad (FreeCAD model)',
     'PCB / schematic - design/electronics (KiCad)',
     'FEA plots - design/cad/outputs/fea',
     'Waveforms - design/fpga (testbench); AI / analysis charts - design/pi, design/analysis',
     'Screenshots - docs/screenshots',
+    'Exception: the road photos on the pothole slide are from the public dataset above (CC BY 4.0); only the boxes are our model\'s output.',
     'Logos: Vishwakarma Awards / Maker Bhavan Foundation (official template).',
   ], { size: 14 });
 }

@@ -37,6 +37,24 @@
 
 All three are Stage 3 work.
 
+## Model training: pothole detector (`training/`)
+
+COCO has no pothole class, so we fine-tuned **YOLO11n** (COCO-pretrained start) on a public pothole dataset
+(Roboflow Universe "Potholes Detection", CC BY 4.0, via Hugging Face `Ryukijano/Pothole-detection-Yolov8`;
+100 train / 100 valid / 100 test images). Train and test were checked for overlap by file name and by perceptual
+hash, including flipped copies: none. 100 epochs on an RTX 5060 laptop GPU took 7.7 min.
+
+| Held-out test split (100 images, 269 potholes) | Result |
+|---|---|
+| Precision / recall | 0.64 / 0.30 |
+| mAP50 / mAP50-95 | 0.37 / 0.15 |
+| ONNX speed, laptop CPU, 4 threads (not Pi 5) | 26 ms per image |
+
+Honest limits: a small dataset of mostly non-Indian road photos taken from vehicle or hand height, so recall is low.
+Stage 3 needs Indian, chest-height images from our own camera. Files: `training/results/pothole_metrics.json`,
+curves, test predictions, `pothole_yolo11n.onnx`. Run: `tools/train-env/bin/python design/pi/training/train_pothole.py`
+(from `tools/train-runs/`).
+
 ## Run
 
 ```
