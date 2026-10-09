@@ -21,7 +21,7 @@
 | Check | Result |
 |---|---|
 | Distance 1500 / 2500 mm | 1499 / 2499 mm |
-| **Echo edge → motor on** | **max 214 ns = 5.8 clock cycles** (4 events; target ≤ 1 ms) |
+| **Echo edge → motor on** | **136 ns** on the plotted waveform event (motor rises on the same clock as the zone change). The testbench monitor reports **max 214 ns** over 4 events, a conservative bound: it samples the motor 2 clocks after the zone change. Target ≤ 1 ms. |
 | Status frames to the Pi | 192 OK, 0 bad (Verilog decoder and Python decoder agree) |
 | Drop-off alert | 22.3 ms after the floor reading changed |
 | Pi heartbeat lost | AI offline flagged at 666 ms; the obstacle alert still worked |

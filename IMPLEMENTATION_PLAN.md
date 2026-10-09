@@ -63,7 +63,7 @@ These become the **"Stage 1 → Stage 2 Engineering Iterations"** slide.
 | C7 | Custom bone-conduction driver | **Bluetooth bone-conduction headset** | The Pi 5 has no analog audio; speech is the information channel, haptics the safety channel. |
 | C8 | Chest-clip, no mechanical detail | **Chest pod on a GoPro-style harness**; power bank in a pocket; **PETG** enclosure; IP54 target | Proven, cheap mount. PLA softens at Indian summer temperatures (Tg ≈ 60 °C); PETG doesn't (Tg ≈ 80 °C). |
 | C9 | "<₹5,500 BOM" | **Prototype BOM from quotes (≈ ₹22–30k)** + a **production-intent BOM estimate** at 1k units | The ₹5,500 figure was impossible with a PYNQ-Z2 alone. |
-| C10 | "250M+"; competitors "₹4–6 lakh" | **43.3 M blind + 295 M with moderate/severe impairment (2020)**; India: **1.99 % blindness among people aged 50+** (NBVIS 2015–19); OrCam MyEye 3 Pro ≈ US$3,700–4,490; Envision ≈ US$1,899–3,499; **SmartCane (IIT Delhi, ≈ ₹3,500) named as our closest Indian competitor** | Current, citable numbers, plus an honest public-search disclosure. |
+| C10 | "250M+"; competitors "₹4–6 lakh" | **43.3 M blind + 295 M with moderate/severe impairment (2020)**; India: **1.99 % blindness among people aged 50+** (NBVIS 2015–19); OrCam MyEye 3 Pro ≈ US$4,250 (US retailer); Envision US$1,899–3,499; **SmartCane (IIT Delhi, ≈ ₹3,500) named as our closest Indian competitor** | Current, citable numbers, plus an honest public-search disclosure. |
 | C11 | MEMS mic for horns/alarms | **Future scope** | Not core to the safety function. |
 | C12 | Caregiver app | **Future scope** | Not core. |
 | C13 | 10–15 pilot users via EnAble India / NAB | **Trials in Stage 3 after ethics approval**, with an O&M instructor; partners listed as "outreach in progress" unless they confirm | Honest scope. |
@@ -245,7 +245,7 @@ Some of these can be **backed by calculation or simulation this round**: alert l
 
 **Stage 3 commitment:** a wearable, battery-powered prototype ready for supervised functional field testing, with every §4 target measured.
 
-**Stage 3 parts budget** (quotes checked 8 Oct 2026): Pi 5 4 GB ₹7–12.5k · Camera Module 3 ~₹3.2k · Tang Nano 9K ₹2,149 · TF-Luna ~₹2,100 · ultrasonics, IMU, motors, small parts ~₹2k · power bank, BT headset, harness ~₹3–5.5k · filament/printing ₹1–2.5k → **≈ ₹22–30k**.
+**Stage 3 parts budget** (re-checked 9 Oct 2026; see `design/bom/VisionAid_BOM_Power.xlsx`): Pi 5 4 GB ₹12,600–14,500 (out of stock) · Camera Module 3 ₹3,158 · Tang Nano 9K ₹2,999 (out of stock) · TF-Luna ₹2,118 (out of stock) · rest estimated → **₹33,945 total, ₹3,945 over the grant**.
 
 ---
 
@@ -277,4 +277,5 @@ Some of these can be **backed by calculation or simulation this round**: alert l
 | Date | Change | Reason |
 |---|---|---|
 | 8 Oct 2026 | v1.0 | Initial plan |
+| 9 Oct 2026 | Numbers audit: every deck figure re-checked against logs/reports; prices re-quoted (BOM ₹33,945); citations re-verified | User: "everything real, verified, and correct" |
 | 8 Oct 2026 | v1.1: scope cut to design-specification deck; no purchases or physical tests in Stage 2; specs as targets backed by calculation/simulation; build moved to the Stage 3 roadmap | Organisers: "PPT of design specifications… No prototype video required" |

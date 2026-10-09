@@ -1,17 +1,17 @@
 {
  "AI continuous (all cores busy, worst)": {
   "pi_W": 8.8,
-  "total_W": 10.12,
-  "runtime_h": 3.11
+  "total_W": 10.14,
+  "runtime_h": 3.1
  },
  "AI event-triggered (detect only when FPGA sees < 3 m; ~50 % duty)": {
   "pi_W": 5.9,
-  "total_W": 7.22,
-  "runtime_h": 4.36
+  "total_W": 7.24,
+  "runtime_h": 4.34
  },
  "AI mostly idle (FPGA alerts only, OCR on demand)": {
   "pi_W": 3.0,
-  "total_W": 4.32,
-  "runtime_h": 7.28
+  "total_W": 4.34,
+  "runtime_h": 7.24
  }
 }

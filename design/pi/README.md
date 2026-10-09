@@ -21,7 +21,7 @@
 |---|---|---|
 | **FPGA ↔ Pi protocol** | **192 frames decoded, 0 bad**; drop-off and fault flags correct; **the Python-built command was accepted by the Verilog FPGA** | Bytes recorded from the Verilog testbench (`../fpga/sim/fpga_to_pi_bytes.hex`); the command bytes come from `protocol.build_command` |
 | Detection speed | 28 ms per 640×640 frame (p95 29 ms) | 24 COCO images, laptop |
-| **Detection accuracy** | mAP50 **0.41** over 12 hazard classes; **person: precision 0.85, recall 0.82 for large (nearby) people**; weak on bench and truck | 200 COCO val2017 images vs human labels, IoU ≥ 0.5 |
+| **Detection accuracy** | mAP50 **0.41** over 12 hazard classes; **person: AP50 0.65, precision 0.85 and recall 0.54 overall; recall 0.82 for people larger than 96 × 96 px in the image**; weak on bench and truck | 200 COCO val2017 images vs human labels, IoU ≥ 0.5 |
 | **OCR accuracy** | **1.9 %** character error (clean), **1.8 %** (blur + tilt + noise); 72–75 % of lines exactly right | 64 rendered labels with known text (synthetic bench test) |
 | OCR speed | 1.2–1.4 s per label | laptop |
 | TTS | English 150–270 ms, Hindi 85–150 ms to synthesise 1.6–3 s of speech | Piper, laptop |

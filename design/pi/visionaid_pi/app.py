@@ -4,7 +4,7 @@ Loop (status frames arrive every 20 ms from the FPGA):
   1. decode FPGA status (protocol.StatusParser)
   2. IMU pitch -> floor-baseline command for the FPGA drop-off detector (floor.FloorBaseline)
   3. EVENT-TRIGGERED AI: run object detection only when the FPGA reports something within 3 m
-     (power analysis: continuous AI ~3.1 h battery, event-triggered ~4.4 h), at most every 0.5 s
+     (power analysis: continuous AI ~3.1 h battery, event-triggered ~4.3 h assuming ~50 % AI duty), at most every 0.5 s
   4. READ button (flag from the FPGA) -> OCR -> speech
   5. alert manager -> Piper speech (safety messages first)
   6. toggle the heartbeat GPIO so the FPGA watchdog knows the AI path is alive

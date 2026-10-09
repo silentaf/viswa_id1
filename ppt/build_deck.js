@@ -161,7 +161,7 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   stat(s, 9.9, 1.15, 2.98, '₹3,500', 'SmartCane - closest Indian aid', 'Cited: IIT Delhi / Assistech');
   card(s, 0.45, 2.6, 6.1, 3.55, 'Problem statement', [
     'The white cane only senses what it touches at ground level, about one cane-length ahead.',
-    'Head-level obstacles (signboards, truck tailgates, branches) and drop-offs (open drains, kerbs, steps) are the hazards it misses; head-level collisions and falls are the mobility accidents blind travellers report (cited: Manduchi & Kurniawan, 2011, survey of 300+ people).',
+    'Head-level obstacles (branches, poles, signs, truck bodies) and drop-offs (open drains, kerbs, steps) are what it misses. In a survey of 307 blind / legally blind travellers, 13 % hit their head at least once a month and 7 % fell at least once a month; 23 % of head-level accidents needed medical care, and cane vs guide-dog users did not differ (cited: Manduchi & Kurniawan, 2011; US-based sample).',
     'Reading a label or sign still needs a sighted helper or a hand-held phone.',
     ['Target beneficiary: ', 'blind and low-vision cane users who walk independently on Indian streets and campuses.'],
   ], { size: 14 });
@@ -169,9 +169,9 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     bold: true, color: NAVY, margin: 0, isTextBox: true });
   table(s, [
     ['Product', 'Price (cited)', 'Gap'],
-    ['SmartCane (IIT Delhi)', '≈ ₹3,500', 'Above-knee only; no drop-offs, no naming / reading'],
-    ['OrCam MyEye 3 Pro', '≈ US$3,700-4,490', 'Reading aid, not mobility; expensive'],
-    ['Envision Glasses', '≈ US$1,899-3,499', 'Reading / description; expensive'],
+    ['SmartCane (IIT Delhi)', '≈ ₹3,500 (2016)', 'Above-knee only; no drop-offs, no naming / reading'],
+    ['OrCam MyEye 3 Pro', '≈ US$4,250', 'Reading aid, not mobility; expensive'],
+    ['Envision Glasses', 'US$1,899-3,499', 'Reading / description; expensive'],
     ['Phone apps (Lookout, MANI)', 'free', 'Need a hand + pointed phone; no continuous warning'],
   ], 6.75, 3.02, 6.13, [1.85, 1.35, 2.93], { size: 11 });
   note(s, 'Core innovation:', 'head-level + drop-off warnings for the cane user, with an alert path bounded in hardware (FPGA) and an on-device AI layer that names hazards and reads text - fully offline.');
@@ -227,10 +227,10 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   ], { size: 15 });
   card(s, 6.75, 2.85, 6.13, 3.3, 'Quantified efficiency (labels say where each number comes from)', [
     ['Warning time, 3 m range at 1.2 m/s: ', '≈ 2.5 s (calculated, target range)'],
-    ['Echo edge → motor on: ', '136-214 ns (simulated; target ≤ 1 ms)'],
+    ['Echo edge → motor on: ', 'max 214 ns over 4 events (simulated; target ≤ 1 ms)'],
     ['Update per direction: ', '99 ms (by design, simulated)'],
     ['Drop-off warned: ', '1.86 m before the step (calculated from CAD angles); alert 22 ms after (simulated)'],
-    ['Camera → spoken warning: ', '211 ms (measured on laptop, not Pi 5)'],
+    ['Image → speech audio ready: ', '211 ms (measured on laptop, not Pi 5; excludes capture + playback)'],
   ], { fill: GREEN, line: GREENLINE, size: 15 });
   note(s, 'Honesty rule:', 'no hardware built yet - simulated = our Verilog testbench; measured = our Pi software run on the dev laptop; Pi 5 and field numbers come in Stage 3.');
 }
@@ -263,16 +263,16 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   table(s, [
     ['Parameter', 'Target', 'Evidence so far', 'Selected hardware / protocol'],
     ['Obstacle range (waist-head)', '0.3-3.0 m', 'sensor class; housings +25° / ±15° (CAD)', '3 × RCWL-1601, 3.3 V, sequenced'],
-    ['Alert latency (echo → motor)', '≤ 1 ms', 'Simulated 136-214 ns', 'Tang Nano 9K GW1NR-9 FPGA, 27 MHz'],
+    ['Alert latency (echo → motor)', '≤ 1 ms', 'Simulated: max 214 ns (4 events)', 'Tang Nano 9K GW1NR-9 FPGA, 27 MHz'],
     ['Update period / direction', '≤ 100 ms', '99 ms by design (simulated)', '3 × 33 ms slots (no crosstalk)'],
-    ['Distance resolution', '≤ ±5 cm to 2 m', 'Simulated 1500 → 1499 mm', '1 µs echo timer (0.17 mm/count)'],
+    ['Distance resolution', '≤ ±5 cm to 2 m', 'Timer logic simulated: 1500 → 1499 mm (sensor error: Stage 3)', '1 µs echo timer (0.17 mm/count)'],
     ['Drop-off warning', '≥ 1.0 m ahead', 'Calculated 1.86 m (−35° from 1.3 m); alert 22 ms (sim.)', 'Benewake TF-Luna + IMU tilt correction'],
     ['Object name / OCR', '≤ 1 s / ≤ 3 s', 'Laptop: detect 28 ms, e2e 211 ms, OCR 1.2-1.4 s', 'Raspberry Pi 5 4 GB + Camera Module 3'],
     ['Pi fails → alert path', 'unaffected, cue ≤ 1 s', 'Simulated: AI-offline at 666 ms', 'FPGA heartbeat watchdog (GPIO17)'],
-    ['Runtime', '≥ 4 h', 'Calc. (cited Pi 5 W): 4.4 h event-triggered AI; 3.1 h if AI always on', '10,000 mAh BIS power bank, USB-C'],
+    ['Runtime', '≥ 4 h', 'Calc. (cited Pi 5 W): 4.3 h if AI busy ~50 % (assumed); 3.1 h if always on', '10,000 mAh BIS power bank, USB-C'],
     ['Pod mass', '≤ 250 g', 'Estimate: likely over (plastic ≈156 g solid)', 'PETG, 2.5 mm wall; lightening in v2'],
   ], 0.45, 1.15, 12.43, [2.75, 1.75, 3.6, 4.33], { size: 12, rowH: 0.43 });
-  note(s, 'Architecture rationale:', 'Pi 5 instead of the Stage 1 PYNQ-Z2 (its Cortex-A9 cores are too slow for detection + OCR, and it does not fit the ₹30k grant); FPGA kept for the parallel, cycle-exact, fault-isolated alert path; wired haptics so no radio sits in the safety path.', 5.95);
+  note(s, 'Architecture rationale:', 'Pi 5 (4 × Cortex-A76, 2.4 GHz) instead of the Stage 1 PYNQ-Z2 (2 × Cortex-A9, 650 MHz) for detection + OCR; FPGA kept for the parallel, cycle-exact, fault-isolated alert path; wired haptics so no radio sits in the safety path.', 5.95);
 }
 
 // ======================================================================================= 7. CAD
@@ -286,13 +286,13 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   caption(s, 'Front: sensor housings', 5.8, 5.6, 2.55);
   card(s, 8.55, 1.1, 4.33, 4.78, 'Mechanical specification', [
     ['Envelope: ', '112 × 84 × 48 mm shell + front housings'],
-    ['Model: ', '19-parameter spreadsheet drives sketches, pads, fillets, shell (fully constrained)'],
+    ['Model: ', '19-parameter spreadsheet drives the model; shell sketch fully constrained'],
     ['Housings: ', 'head sensor +25°, side sensors ±15° yaw, LiDAR −35°'],
     ['Mount: ', 'GoPro-style 2-finger (3 mm, M5) on a chest harness'],
     ['Cooling: ', 'side + top/bottom vents for the Pi 5 active cooler'],
     ['Interference check: ', '0 mm³ vs Pi, carrier, Tang Nano, sensors'],
   ], { size: 12 });
-  note(s, 'Design iteration:', 'adding the real Tang Nano 3D model showed a 182 mm³ clash with the lid (HDMI connector) - shell depth raised 44 → 48 mm in one parameter; clash now 0 mm³.', 6.1);
+  note(s, 'Design iteration:', 'adding the Tang Nano 3D model showed a 182 mm³ clash with the lid (171 mm³ of it the HDMI connector) - shell depth raised 44 → 48 mm in one parameter; clash now 0 mm³.', 6.1);
 }
 
 // ======================================================================================= 8. FEA
@@ -312,9 +312,9 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   card(s, 8.25, 2.75, 4.63, 3.45, 'FreeCAD FEM + Gmsh + CalculiX', [
     ['Load A: ', '50 N down (0.3 kg × ~17 g bump); B: 20 N sideways'],
     ['PETG: ', 'E 2.0 GPa, ν 0.38, yield ≈ 50 MPa; required FoS ≥ 3'],
-    ['Result: ', 'worst FoS 8.7; max deflection 0.06 mm'],
+    ['Result: ', 'v2 worst FoS 8.7 (every run ≥ 8.6); max deflection 0.064 mm'],
     ['v1: ', 'root stress kept rising with mesh refinement → sharp-corner singularity'],
-    ['v2: ', '1.5 mm root fillets → converged (< 3 % change); now in the CAD'],
+    ['v2: ', '1.5 mm root fillets → converged (≤ 3 % spread, 3 meshes); now in the CAD'],
   ], { size: 12 });
   note(s, 'Limitations:', 'linear isotropic model (printed parts are anisotropic); finest v2 mesh failed to solve, so v2 uses 3 mesh levels; a printed-mount pull test is planned for Stage 3.', 6.4);
 }
@@ -339,47 +339,48 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   const s = content('Bill of Materials & Sourcing');
   table(s, [
     ['Component', 'Part / specification', 'Qty', 'Source · origin · lead', '₹ (basis)'],
-    ['AI computer', 'Raspberry Pi 5 4 GB + active cooler', '1', 'KSP / Thingbits · imported, local stock · 2-4 d', '12,550 (quote + est.)'],
-    ['FPGA', 'Sipeed Tang Nano 9K', '1', 'Probots · imported, local stock · 1-3 d', '2,149 (quote)'],
-    ['Camera', 'Pi Camera Module 3 + cable', '1', 'Thingbits · imported, local stock · 2-4 d', '3,450 (quote + est.)'],
-    ['LiDAR', 'Benewake TF-Luna', '1', 'Probots · imported, local stock · 1-3 d', '2,118 (quote)'],
+    ['AI computer', 'Raspberry Pi 5 4 GB + active cooler', '1', 'KSP Electronics · imported · out of stock', '15,050 (quote + est.)'],
+    ['FPGA', 'Sipeed Tang Nano 9K', '1', 'Probots · imported · out of stock', '2,999 (quote)'],
+    ['Camera', 'Pi Camera Module 3 + cable', '1', 'Thingbits · imported · in stock', '3,358 (quote + est.)'],
+    ['LiDAR', 'Benewake TF-Luna', '1', 'Probots · imported · out of stock', '2,118 (quote)'],
     ['Ultrasonic + IMU', 'RCWL-1601 × 4, MPU-6050', '5', 'Robu · local · 2-4 d', '800 (est.)'],
     ['Feedback', 'Coin motors × 2, BT bone-conduction headset', '3', 'Robu / Amazon.in · 2-5 d', '2,120 (est.)'],
     ['Power', '10,000 mAh BIS power bank', '1', 'local · 1-3 d', '1,200 (est.)'],
     ['Carrier PCB', '2-layer fab ×5 + SMD parts + connectors + ribbon', '1', 'LionCircuits (domestic) · 5-7 d', '3,250 (est.)'],
     ['Mechanical', 'PETG, standoffs, inserts, harness, buttons', '1', 'Robu / Amazon.in · 2-5 d', '2,350 (est.)'],
     ['microSD', '64 GB A2', '1', 'local · 1-3 d', '700 (est.)'],
-    ['TOTAL', '', '', 'Grant ₹30,000', '30,687'],
+    ['TOTAL', '', '', 'Grant ₹30,000', '33,945'],
   ], 0.45, 1.1, 8.3, [1.35, 2.75, 0.45, 2.45, 1.3], { size: 11, rowH: 0.38 });
   card(s, 8.95, 1.1, 3.93, 2.55, 'Budget - honest status', [
-    'At the highest Pi 5 quote the build is ₹687 over the grant.',
-    'At the ₹5.5-7.5k distributor price it is ≈ ₹24-26k.',
-    ['Rule: ', 'buy Pi 5 only ≤ ₹9,000, else Pi 4 4 GB.'],
+    'Everything except the Pi 5 board: ₹19,445.',
+    'Pi 5 4 GB on 9 Oct: ₹12,600-14,500, out of stock → ₹2,045-3,945 over the grant.',
+    ['Rule: ', 'Pi 5 must be ≤ ₹10,555 to fit; else re-quote or cover the gap from team funds.'],
   ], { size: 12, fill: GREEN, line: GREENLINE });
   card(s, 8.95, 3.8, 3.93, 2.35, 'Battery life (calculated, cited Pi 5 W)', [
-    'Pi 5: ≈ 3.0 W idle, ≈ 8.8 W full load (published)',
+    'Pi 5: ≈ 3.0 W idle, ≈ 8.8 W full load (published); rest 1.34 W (est.)',
     ['AI always on: ', '10.1 W → 3.1 h'],
-    ['Event-triggered AI: ', '7.2 W → 4.4 h (chosen)'],
-    ['AI idle: ', '4.3 W → 7.3 h'],
+    ['Event-triggered, ~50 % (assumed): ', '7.2 W → 4.3 h'],
+    ['AI idle: ', '4.3 W → 7.2 h'],
   ], { size: 12 });
-  note(s, 'Procurement status:', 'nothing ordered in Stage 2 (design round). All parts are stocked by Indian distributors; PCB fab is domestic. Full itemised BOM: design/bom/VisionAid_BOM_Power.xlsx.', 6.35);
+  note(s, 'Procurement status:', 'nothing ordered in Stage 2. Quotes are live listings checked 9 Oct 2026; Pi 5, Tang Nano 9K and TF-Luna were out of stock that day - re-quote and order early. Itemised BOM: design/bom/VisionAid_BOM_Power.xlsx.', 6.35);
 }
 
 // ======================================================================================= 11. FPGA evidence
 {
   const s = content('FPGA Safety Island - Verification & Implementation', 'SIM + REAL P&R');
-  img(s, 'waveform_latency_zoom.png', 0.45, 1.05, 7.5, 5.15);
+  img(s, 'waveform_latency_zoom.png', 0.45, 1.05, 7.5, 4.75);
+  caption(s, 'Plotted event: 136 ns from echo edge to motor ON (motor rises on the same clock as the zone change). The testbench monitor samples 2 clocks later, so its 214 ns is a conservative upper bound.', 0.45, 5.75, 7.5);
   table(s, [
     ['Testbench check (Icarus Verilog)', 'Result'],
     ['Distance 1500 / 2500 mm', '1499 / 2499 mm'],
-    ['Echo edge → motor ON', 'max 214 ns (5.8 cycles)'],
+    ['Echo edge → motor ON', '≤ 214 ns (monitor bound, 4 events); 136 ns on waveform'],
     ['Frames to Pi (Verilog / Python)', '192 / 192 decoded, 0 bad'],
     ['LiDAR drop-off', 'alert 22.3 ms after change'],
     ['Pi heartbeat lost', 'AI-offline 666 ms; alerts kept working'],
     ['Sensor unplugged', 'fault flag + FAULT_N low'],
     ['Overall', 'ALL TESTS PASSED'],
   ], 8.15, 1.05, 4.73, [2.6, 2.13], { size: 12, rowH: 0.42 });
-  card(s, 8.15, 4.5, 4.73, 1.75, 'Real implementation (not estimates)', [
+  card(s, 8.15, 4.5, 4.73, 1.75, 'Place & route + static timing (no hardware yet)', [
     ['GW1NR-9 (nextpnr): ', 'Fmax 67.9 MHz vs 27 MHz ✓; LUT 17 %, FF 8 %; bitstream .fs built'],
     ['Zynq-7020 (Vivado 2026.1): ', 'timing met, WNS +30.2 ns'],
   ], { size: 12 });
@@ -398,7 +399,7 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     '"Step down ahead. Stop."  ·  "Check device: head sensor."',
     '"person, left, 1.6 metres" - WAV files in design/pi/results/replay',
   ], { size: 12, fill: GREEN, line: GREENLINE });
-  note(s, 'Honest scope:', 'speeds measured on an i7 laptop (4 threads), NOT on a Pi 5; accuracy is hardware-independent (COCO: 200 images vs human labels; OCR: 64 labels with known text). Pi 5 timing in Stage 3.', 6.38);
+  note(s, 'Honest scope:', 'speeds measured on an i7 laptop (4 threads), NOT on a Pi 5; 211 ms excludes camera capture and audio playback. Accuracy is hardware-independent (COCO: 200 images vs human labels; OCR: 64 synthetic labels). Pi 5 timing in Stage 3.', 6.38);
 }
 
 // ======================================================================================= sensor analysis
@@ -445,12 +446,12 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   const s = content('Stage 1 → Stage 2 Engineering Iterations');
   table(s, [
     ['Stage 1 said', 'Stage 2 decision', 'Why'],
-    ['PYNQ-Z2 does everything', 'Pi 5 (AI) + Tang Nano 9K FPGA (safety island)', 'A9 cores too slow for detection + OCR; not in ₹30k; fault isolation'],
+    ['PYNQ-Z2 does everything', 'Pi 5 (AI) + Tang Nano 9K FPGA (safety island)', '2 × A9 650 MHz vs 4 × A76 2.4 GHz for AI; fault isolation'],
     ['"<10 ms" reflex, "<100 ms" on cover', 'Per-stage specs: echo → motor ≤ 1 ms', 'Echo from 3 m alone takes ≈ 17.5 ms - "<10 ms end-to-end" is impossible'],
     ['Downward ultrasonic for drop-offs', 'Downward TF-Luna LiDAR (−35°)', 'Narrow beam gives a clean floor-distance signal'],
     ['Wristband with 2 motors', 'L / R motors on the chest straps, wired', 'Two motors on one wrist are hard to tell apart; no radio in safety path'],
     ['Custom bone-conduction driver', 'Bluetooth bone-conduction headset', 'Pi 5 has no analog audio; speech is the information channel'],
-    ['"< ₹5,500 BOM"', 'Prototype BOM ≈ ₹24-31k from quotes', 'The PYNQ-Z2 alone exceeded ₹5,500'],
+    ['"< ₹5,500 BOM"', 'Prototype BOM ₹33,945 at 9 Oct quotes', 'Pi 5 + camera alone exceed ₹5,500'],
     ['"250M+", "₹4-6 lakh" competitors', 'Cited 2020 data; SmartCane disclosed', 'Accuracy and honest public-search disclosure'],
     ['10-15 pilot users', 'Stage 3, after ethics approval + O&M instructor', 'Honest scope for a design round'],
   ], 0.45, 1.1, 12.43, [3.3, 4.3, 4.83], { size: 12, rowH: 0.52 });
@@ -488,7 +489,7 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   const months = [
     ['Nov 2026', ['Order parts + carrier PCB (LionCircuits)', 'FPGA + sensor bring-up on the bench', 'Range, latency (logic analyser at TP4/TP5), power tests']],
     ['Dec 2026', ['PCB assembly; Pi software integration', 'Print + fit enclosure; thermal test in pod', 'India-class dataset (auto-rickshaw, cow, pothole, drain)']],
-    ['Jan 2027', ['Ethics approval (SVNIT IEC)', 'Supervised trials: sighted blindfolded first', 'Then blind volunteers with an O&M instructor']],
+    ['Jan 2027', ['Ethics approval (institute ethics committee)', 'Supervised trials: sighted blindfolded first', 'Then blind volunteers with an O&M instructor']],
     ['Feb 2027', ['Fix top issues from trials', 'Re-run all Stage 2 tests on hardware', 'Field-test-ready unit for Stage 3']],
   ];
   months.forEach((m, i) => {
@@ -508,9 +509,9 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   const s = content('Technical Challenges & Risks');
   const cards = [
     ['Ultrasonic crosstalk vs update rate', 'Three sensors firing together hear each other. Sequencing fixes it but limits each direction to one ping per 99 ms (simulated).'],
-    ['Enclosure clash found in CAD', 'With the real Tang Nano 3D model, the HDMI connector hit the lid by 182 mm³ (CAD interference check).'],
+    ['Enclosure clash found in CAD', 'With the Tang Nano 3D model added, the module clashed with the lid by 182 mm³ - 171 mm³ of it the HDMI connector (CAD interference check).'],
     ['Weight over target', 'Enclosure plastic alone ≈ 156 g if solid (CAD volume); with Pi 5 and sensors the pod likely exceeds 250 g.'],
-    ['Budget is tight', 'At the highest Pi 5 quote the BOM is ₹687 over the ₹30k grant.'],
+    ['Budget over the grant', 'At 9 Oct quotes the BOM is ₹33,945 - ₹3,945 over the ₹30k grant; Pi 5, Tang Nano and TF-Luna were out of stock.'],
     ['Battery vs always-on AI', 'With the AI always running, the calculated runtime is 3.1 h - below the 4 h target (cited Pi 5 power).'],
     ['Sway false alarms + coverage gap', 'Simulation: 25 false drop-off alarms in 20 s with a fixed floor baseline; waist-height gap under 1 m ahead.'],
   ];
@@ -528,8 +529,8 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     ['Crosstalk vs rate', 'Keep sequencing; Stage 3 option: coded pings to fire in parallel'],
     ['Enclosure clash', 'Done: shell depth 44 → 48 mm (one parameter); interference now 0 mm³'],
     ['Weight', 'v2: 2.0 mm walls + 20 % infill, merge housings, Pi Compute Module later'],
-    ['Budget', 'Pi 5 only ≤ ₹9,000, else Pi 4 4 GB (same design, lower AI frame rate)'],
-    ['Battery', 'Done in code: event-triggered AI → 4.4 h (calculated); measure on hardware'],
+    ['Budget', 'Pi 5 must be ≤ ₹10,555 to fit; re-quote at order time, else team funds cover the gap'],
+    ['Battery', 'Done in code: event-triggered AI → 4.3 h (calc., ~50 % AI duty assumed); measure on hardware'],
     ['Sway / gap', 'Done: IMU floor baseline (0 false alarms, sim.); gap: forward sensors −10° in CAD v2'],
     ['Mount corners', 'Done: 1.5 mm root fillets (FEA v2 converged, FoS ≥ 8.7)'],
     ['Pi failure / heat', 'FPGA watchdog + independent alert path (simulated); cooler + vents, thermal test'],
@@ -547,11 +548,11 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   card(s, 0.45, 1.1, 7.0, 5.05, 'References', [
     'Bourne R. et al., Trends in prevalence of blindness and vision impairment, Lancet Global Health 9(2):e130-e143, 2021.',
     'National Blindness & Visual Impairment Survey India 2015-19, AIIMS / MoHFW (indiavisionatlasnpcb.aiims.edu).',
-    'Manduchi R., Kurniawan S., Mobility-related accidents experienced by people with visual impairment, Insight 4(2), 2011.',
-    'SmartCane - IIT Delhi / Assistech product information (electronicsforu.com).',
-    'OrCam MyEye 3 Pro (orcam.com) and Envision Glasses (letsenvision.com) pricing, 2026.',
+    'Manduchi R., Kurniawan S., Mobility-related accidents experienced by people with visual impairment, Insight 4(2), 2011 (tech. report UCSC-SOE-10-24; 307 respondents).',
+    'SmartCane - IIT Delhi / Assistech: ₹3,500 (Snapdeal launch, 2016; entrepreneur.com, electronicsforu.com).',
+    'OrCam MyEye 3 Pro US$4,250 (nelowvision.com); Envision Glasses US$1,899 / 3,499 (shop.letsenvision.com) - checked 9 Oct 2026.',
     'Sipeed Tang Nano 9K wiki and pin map; Benewake TF-Luna datasheet; Raspberry Pi 5 / Camera Module 3 product briefs.',
-    'Raspberry Pi 5 power (≈ 3.0 W idle, ≈ 8.8 W full load): raspberry.tips power comparison, 2026.',
+    'Raspberry Pi 5 power (≈ 3.0 W idle, ≈ 8.8 W full load): raspberry.tips power comparison, 2026. Part prices: kspelectronics.in, electronifyindia.com, probots.co.in, thingbits.in (9 Oct 2026).',
     'COCO val2017 (cocodataset.org); YOLOv5n (Ultralytics); RapidOCR / PP-OCR; Piper TTS (rhasspy).',
     'Tools: KiCad 9, FreeCAD + CalculiX + Gmsh, Icarus Verilog, GTKWave, Yosys, nextpnr + Apicula, Vivado 2026.1, FreeRouting.',
   ], { size: 12 });

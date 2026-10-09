@@ -2,15 +2,16 @@
 
 **Vishwakarma Awards 2026–27 · Stage 2 (Design Development)**
 **Team SVNIT:** Jayant Kumawat (lead), Sneha Ahir, Aman Gupta · SVNIT Surat · Mentor institute: IIT Indore
-**Track:** Assistive Solutions & Inclusive Living · **Date:** 8 Oct 2026 · **Status:** design stage, nothing fabricated yet
+**Track:** Assistive Solutions & Inclusive Living · **Date:** 9 Oct 2026 · **Status:** design stage, nothing fabricated yet
 
 > **How to read the numbers in this document:**
 > - **Target** = a design goal.
 > - **Simulated** = from our own simulation files.
 > - **Calculated** = from datasheets and arithmetic.
 > - **Cited** = from a published source.
+> - **Measured (laptop)** = our Pi software run on the development laptop, not on a Pi 5.
 >
-> Nothing here is a hardware measurement. Hardware testing is planned for Stage 3.
+> No VisionAid hardware has been built, so nothing here is a hardware measurement. Hardware testing is planned for Stage 3.
 
 ---
 
@@ -22,15 +23,15 @@
 
 - In 2020, about **43.3 million people were blind** and **295 million had moderate or severe vision impairment** worldwide *(cited: Bourne et al., Lancet Global Health 2021)*.
 - In India, blindness affects **1.99 % of people aged 50 and over** *(cited: National Blindness & Visual Impairment Survey 2015–19)*.
-- The white cane only detects what it touches at ground level. **Head-level collisions and falls** are the injuries that blind travellers report most often *(cited: Manduchi & Kurniawan, 2011, a survey of 300+ people)*.
+- The white cane only detects what it touches at ground level. In a survey of **307** blind and legally blind travellers, **13 % had head-level accidents at least once a month** and **7 % fell at least once a month**; 23 % of head-level accidents needed medical care, and cane users and guide-dog users did not differ *(cited: Manduchi & Kurniawan, 2011; US-based sample)*.
 
 **What exists today, and the gap:**
 
 | Product | What it does | Price | Gap |
 |---|---|---|---|
-| **SmartCane (IIT Delhi / Assistech)** | Ultrasonic, above-knee obstacles, vibration on the cane handle | ≈ ₹3,500 | No drop-off detection, does not identify objects, no text reading |
-| OrCam MyEye 3 Pro | Camera on glasses: reading, faces, products | ≈ US$3,700–4,490 | Not a mobility aid; expensive |
-| Envision Glasses | AI reading and scene description | ≈ US$1,899–3,499 | Not a mobility aid; expensive; some features need the cloud |
+| **SmartCane (IIT Delhi / Assistech)** | Ultrasonic, above-knee obstacles, vibration on the cane handle | ≈ ₹3,500 (2016) | No drop-off detection, does not identify objects, no text reading |
+| OrCam MyEye 3 Pro | Camera on glasses: reading, faces, products | ≈ US$4,250 (US retailer, Oct 2026) | Not a mobility aid; expensive |
+| Envision Glasses | AI reading and scene description | US$1,899–3,499 (official shop, Oct 2026) | Not a mobility aid; expensive; some features need the cloud |
 | Phone apps (Lookout, RBI MANI, Seeing AI) | Reading and identification | free | Need a hand and a pointed phone; no continuous obstacle warning |
 
 Nothing affordable combines head-level and drop-off warnings with a **bounded alert latency**, on-device object naming and text reading, and fully offline operation, in a form that is worn rather than held.
@@ -78,7 +79,7 @@ Nothing affordable combines head-level and drop-off warnings with a **bounded al
 | Downward ultrasonic | Downward TF-Luna LiDAR + IMU | A narrow beam gives a clean floor-distance signal. |
 | Wristband with 2 motors | Left/right motors on the harness straps | Two motors on one wrist are hard to tell apart. A user test is planned for Stage 3. |
 | Custom bone-conduction driver | Bluetooth bone-conduction headset | The Pi 5 has no analog audio. |
-| "<₹5,500 BOM" | Prototype BOM ≈ ₹24–31k (quotes + estimates); production estimate in Stage 3 | ₹5,500 was impossible with the Stage 1 hardware. |
+| "<₹5,500 BOM" | Prototype BOM ₹33,945 at 9 Oct 2026 quotes + estimates (₹3,945 over the grant; see §6); production estimate in Stage 3 | ₹5,500 was impossible with the Stage 1 hardware. |
 | "250M+", "₹4–6 lakh" competitors | Updated cited figures; SmartCane named | Accuracy, and an honest public-search disclosure. |
 | 10–15 pilot users | Stage 3, after ethics approval, with an O&M instructor | Honest scope. |
 | Mic, caregiver app | Future scope | Not core to safety. |
@@ -89,13 +90,13 @@ Nothing affordable combines head-level and drop-off warnings with a **bounded al
 |---|---|---|
 | Obstacle range (waist–head) | 0.3–3.0 m | Sensor class rating; housings angled: head +25°, sides ±15° (CAD) |
 | Distance resolution | ≤ ±5 cm to 2 m | 1 µs echo timing = 0.17 mm resolution *(simulated: 1500 mm → 1499 mm)* |
-| **Alert latency (echo edge → motor on)** | ≤ 1 ms | **Simulated: 136–214 ns (4–6 clock cycles at 27 MHz)** |
+| **Alert latency (echo edge → motor on)** | ≤ 1 ms | **Simulated: 136 ns on the waveform; ≤ 214 ns testbench bound over 4 events (the monitor samples 2 clocks late)** |
 | Update period per direction | ≤ 100 ms | 3 sequenced 33 ms slots = 99 ms *(by design; simulated)* |
 | Drop-off warning | ≥ 1.0 m ahead of the step | LiDAR at −35° from chest height; *simulated: alert 22 ms after the floor reading changes* |
 | AI offline detection | ≤ 1 s, alerts unaffected | *Simulated: 666 ms; obstacle alert still worked with the Pi offline* |
 | Object name spoken | ≤ 1.0 s | Stage 3 measurement |
 | OCR read-aloud | ≤ 3 s | Stage 3 measurement |
-| Runtime | ≥ 4 h | *Calculated: 7.3 W average → 4.3 h on a 10,000 mAh bank* (to be measured) |
+| Runtime | ≥ 4 h | *Calculated: 7.2 W → 4.3 h on a 10,000 mAh bank, using cited Pi 5 power (3.0 W idle, 8.8 W full load) and assuming the AI is busy ~50 % of the time; 3.1 h if always on* (to be measured) |
 | Pod mass | ≤ 250 g | *Estimated: ≈ 156 g of PETG if printed solid (CAD volume 123 cm³ × 1.27 g/cm³; less with normal infill) plus electronics*. Likely over the target; a v2 weight reduction is planned. |
 
 ## 6. Hardware (see `design/` for every file)
@@ -106,7 +107,7 @@ Nothing affordable combines head-level and drop-off warnings with a **bounded al
   - **ERC 0 · DRC 0 · 0 unconnected · schematic ↔ PCB parity 0**; Gerbers generated.
 - **FPGA logic** (Verilog):
   - **ALL TESTS PASSED** in simulation;
-  - **≈ 26 % of the LUTs and 9 % of the flip-flops** of the GW1NR-9 *(Yosys synthesis estimate)*.
+  - **Place and route on the GW1NR-9 (nextpnr):** timing met at 27 MHz (Fmax 67.9 MHz), **17 % of the LUTs and 8 % of the flip-flops**; bitstream generated.
 - **Enclosure** (FreeCAD, parametric):
   - 112 × 84 × 48 mm PETG shell (depth raised from 44 mm after the interference check with the real Tang Nano 3D model found a clash), angled sensor housings, GoPro-style mount with 1.5 mm root fillets, vents;
   - **0 mm³ interference** with the electronics *(CAD check)*.
@@ -114,6 +115,8 @@ Nothing affordable combines head-level and drop-off warnings with a **bounded al
   - 50 N down and 20 N sideways, worst **factor of safety 8.7** (requirement ≥ 3).
   - The convergence study showed a **stress singularity at the sharp finger roots in v1**; v2 adds **1.5 mm root fillets** and converges.
   - Details: `design/cad/outputs/fea/README.md`.
+
+**Prototype BOM** (`design/bom/VisionAid_BOM_Power.xlsx`, quotes checked 9 Oct 2026): **₹33,945**, ₹3,945 over the ₹30,000 grant. Everything except the Pi 5 board costs ₹19,445, so the Pi 5 4 GB must cost ≤ ₹10,555 to fit; the listings checked were ₹12,600–14,500 and out of stock. The Tang Nano 9K and TF-Luna were also out of stock that day. Plan: re-quote at order time and cover any gap from team funds.
 
 ## 7. Safety
 
@@ -137,7 +140,7 @@ Nothing affordable combines head-level and drop-off warnings with a **bounded al
 
 1. Bourne R. et al., *Lancet Global Health* 9(2):e130–e143, 2021.
 2. National Blindness & Visual Impairment Survey India 2015–19, AIIMS / MoHFW.
-3. Manduchi R., Kurniawan S., *Insight* 4(2), 2011 (UCSC-SOE-10-24).
+3. Manduchi R., Kurniawan S., *Insight* 4(2), 2011 (UCSC-SOE-10-24): 307 respondents.
 4. SmartCane, IIT Delhi / Assistech (product information).
-5. OrCam MyEye 3 Pro and Envision Glasses (vendor pricing pages, 2026).
+5. OrCam MyEye 3 Pro (nelowvision.com listing) and Envision Glasses (shop.letsenvision.com), checked 9 Oct 2026.
 6. Sipeed Tang Nano 9K wiki and pin map; Benewake TF-Luna datasheet; Raspberry Pi 5 product brief.

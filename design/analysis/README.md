@@ -29,7 +29,7 @@ Uses the **published** Pi 5 figures: ≈ 3.0 W idle and ≈ 8.8 W full load (ras
 | Mode | Total | Runtime |
 |---|---|---|
 | AI running continuously | 10.1 W | **3.1 h** |
-| **Event-triggered AI (design choice)** | 7.2 W | **4.4 h** |
-| AI mostly idle | 4.3 W | 7.3 h |
+| **Event-triggered AI (design choice; AI busy ~50 %, assumed)** | 7.2 W | **4.3 h** |
+| AI mostly idle | 4.3 W | 7.2 h |
 
 **Conclusion:** the ≥ 4 h target needs event-triggered AI. This is implemented in `design/pi/visionaid_pi/app.py`.

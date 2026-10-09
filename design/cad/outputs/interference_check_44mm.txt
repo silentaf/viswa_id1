@@ -1,0 +1,17 @@
+# Re-check (9 Oct 2026): build_pod.py with BaseD = 44 mm (the old depth), interference vs printed parts
+# The 924 mm3 solid is the Tang Nano 9K HDMI connector (15 x 11 x 5.6 mm in electronics/scripts/make_tangnano_3d.py).
+BaseShell      valid=True volume=65.4 cm3  bbox X -56.0..56.0 Y -17.5..44.0 Z -42.0..42.0
+FrontAssembly  valid=True volume=53.4 cm3  bbox X -57.9..57.9 Y 44.0..76.6 Z -51.1..47.2
+interference RPi5_PCB                 0.00 mm3
+interference RPi5_ActiveCooler        0.00 mm3
+interference RPi5_USB_Ethernet        0.00 mm3
+  clash bbox BoundBox (-42.525, 41.6, -9.94615, 23.325, 47.2, 5.05385)
+  solid bbox BoundBox (-42.525, 41.6, -6.94615, -35.025, 44.8, 2.05385) vol 216.00 clash 11.68
+  solid bbox BoundBox (12.325, 41.6, -9.94615, 23.325, 47.2, 5.05385) vol 924.00 clash 170.58
+interference CarrierPCB_from_KiCad    182.26 mm3
+interference US_Head_RCWL1601         0.00 mm3
+interference US_Left_RCWL1601         0.00 mm3
+interference US_Right_RCWL1601        0.00 mm3
+interference Camera_Module3           0.00 mm3
+interference TFLuna_LiDAR             0.00 mm3
+# With BaseD = 48 mm (current): see model_report.txt - all 0.00 mm3

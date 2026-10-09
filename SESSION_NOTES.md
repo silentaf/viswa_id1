@@ -1,4 +1,4 @@
-# VisionAid: Session Notes (where we are, as of 8 Oct 2026, night)
+# VisionAid: Session Notes (where we are, as of 9 Oct 2026)
 
 **Goal:** Vishwakarma Awards 2026–27 **Stage 2** submission. This is a design-specification PPT on the official template, submitted via the Design Stage Form.
 - **Deadline:** 25 Oct 2026, 23:59.
@@ -8,7 +8,7 @@
 
 ## Status right now
 
-The user is **reviewing the PPT** and will send feedback. **Next step: apply their feedback to `ppt/build_deck.js`, rebuild, check visually, then commit and push.**
+**9 Oct: full numbers audit done.** Every deck figure was re-checked against the logs/reports, the citations against their sources, and prices against live listings. Fixes: BOM ₹33,945 (₹3,945 over; Pi 5 / Tang Nano / TF-Luna out of stock), runtime 4.3 h (assumes ~50 % AI duty), latency 136 ns waveform vs ≤ 214 ns testbench bound, Manduchi survey stats, OrCam US$4,250, detection-chart labels. New evidence files: `design/cad/outputs/interference_check_44mm.txt`, `design/electronics/outputs/DRC_ERC_parity_recheck.txt`, `design/pi/results/ocr_word_order_check.txt`. **Next:** user fills IDs + photos, then exports the PDF.
 
 ### Done
 
@@ -16,12 +16,12 @@ The user is **reviewing the PPT** and will send feedback. **Next step: apply the
 |---|---|---|
 | Plan + corrected proposal | `IMPLEMENTATION_PLAN.md`, `VisionAid_Proposal_v2.md` | 15 changes from Stage 1, with reasons |
 | Electronics (KiCad 9) | `design/electronics/` | Carrier board 85×56 mm, ERC 0, DRC 0, parity 0, Gerbers, STEP; Tang Nano 9K 3D model in `3d/` |
-| FPGA (Verilog) | `design/fpga/` | Simulation **all pass**; echo → motor ≤ 214 ns; **real P&R on GW1NR-9: Fmax 67.9 MHz, LUT 17 %, FF 8 %, bitstream `impl/visionaid.fs`**; Vivado xc7z020: WNS +30.2 ns |
+| FPGA (Verilog) | `design/fpga/` | Simulation **all pass**; echo → motor 136 ns (waveform), ≤ 214 ns (testbench bound); **real P&R on GW1NR-9: Fmax 67.9 MHz, LUT 17 %, FF 8 %, bitstream `impl/visionaid.fs`**; Vivado xc7z020: WNS +30.2 ns |
 | FPGA ↔ Pi cross-check | `design/fpga/tb`, `design/pi` | Python-built command accepted by the Verilog FPGA; Python decodes 192/192 frames |
-| Pi software (AI path) | `design/pi/` | YOLOv5n 28 ms/frame, mAP50 0.41 (person, nearby: recall 0.82, precision 0.85); OCR 1.9 % character error; Piper TTS in English and Hindi; end to end 211 ms. **All measured on the laptop (i7-14650HX), NOT a Pi 5.** Event-triggered AI; IMU floor baseline. |
-| Analyses | `design/analysis/` | Drop-off warned 1.86 m ahead; sway: 25 false alarms → 0 with IMU; waist-height gap under 1 m (fix: forward sensors −10°, CAD v2); battery 3.1 / **4.4** / 7.3 h |
-| CAD (FreeCAD) | `design/cad/` | Parametric pod 112×84×48 mm; 0 mm³ interference; FEA worst-case safety factor 8.7; 1.5 mm finger-root fillet |
-| BOM | `design/bom/VisionAid_BOM_Power.xlsx` | ₹30,687, **₹687 over the grant** at the highest Pi 5 quote. Rule: buy the Pi 5 only at ≤ ₹9k, else a Pi 4. |
+| Pi software (AI path) | `design/pi/` | YOLOv5n 28 ms/frame, mAP50 0.41 (person: precision 0.85, recall 0.54 overall, 0.82 for people > 96 px); OCR 1.9 % character error; Piper TTS in English and Hindi; end to end 211 ms. **All measured on the laptop (i7-14650HX), NOT a Pi 5.** Event-triggered AI; IMU floor baseline. |
+| Analyses | `design/analysis/` | Drop-off warned 1.86 m ahead; sway: 25 false alarms → 0 with IMU; waist-height gap under 1 m (fix: forward sensors −10°, CAD v2); battery 3.1 / **4.3** (~50 % AI duty, assumed) / 7.2 h |
+| CAD (FreeCAD) | `design/cad/` | Parametric pod 112×84×48 mm; 0 mm³ interference; FEA v2 worst safety factor 8.7 (all runs ≥ 8.6); 1.5 mm finger-root fillet |
+| BOM | `design/bom/VisionAid_BOM_Power.xlsx` | ₹33,945 at 9 Oct quotes, **₹3,945 over the grant**. Pi 5 must be ≤ ₹10,555 to fit; re-quote at order time. |
 | Screenshots | `docs/screenshots/` | FreeCAD tree/sketch, KiCad DRC/ERC/3D, GTKWave |
 | **PPT** | `ppt/VisionAid_Stage2_Design_Deck.pptx` (20 slides, editable), built by `node ppt/build_deck.js` | Validated and checked visually |
 

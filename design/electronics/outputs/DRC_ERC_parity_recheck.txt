@@ -1,0 +1,7 @@
+kicad-cli pcb drc --schematic-parity --severity-all (KiCad 9, re-run 9 Oct 2026)
+Found 0 violations
+Found 0 unconnected items
+Found 0 schematic parity issues
+
+kicad-cli sch erc --severity-all
+Found 0 violations

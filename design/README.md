@@ -5,9 +5,9 @@
 | Folder | What | Key result | Feeds slide |
 |---|---|---|---|
 | `electronics/` | KiCad 9 carrier board: schematic, PCB, Gerbers, BOM, 3D STEP | ERC 0 · DRC 0 · 0 unconnected · parity 0 · 100 % routed | 5, 9, 10, 12 |
-| `fpga/` | Verilog safety island, testbench, waveform plots, Yosys utilisation | ALL TESTS PASSED; echo → motor ≤ 214 ns (simulated); ~26 % LUTs | 5, 6, 12, 16 |
+| `fpga/` | Verilog safety island, testbench, waveform plots, Yosys utilisation | ALL TESTS PASSED; echo → motor 136 ns on the waveform, ≤ 214 ns testbench bound (simulated); P&R: LUT 17 %, FF 8 %, Fmax 67.9 MHz | 5, 6, 12, 16 |
 | `cad/` | FreeCAD parametric pod (`VisionAid_Pod.FCStd`), STEP/STL, renders, mount FEA | 0 mm³ interference; FEA convergence + v1 → v2 iteration | 7, 8, 12 |
-| `bom/` | `VisionAid_BOM_Power.xlsx`: prototype BOM + power budget | ≈ ₹30.7k at the highest Pi quote (budget rule inside); 7.3 W → 4.3 h (calculated) | 6, 10 |
+| `bom/` | `VisionAid_BOM_Power.xlsx`: prototype BOM + power budget | ₹33,945 at 9 Oct 2026 quotes (₹3,945 over the grant; budget rule inside); 7.2 W → 4.3 h assuming ~50 % AI duty (calculated) | 6, 10 |
 | `../VisionAid_Proposal_v2.md` | Corrected Stage 1 document | 15 documented changes | 1–4, 13 |
 | `../IMPLEMENTATION_PLAN.md` | Plan, gates, slide map, checklist | — | all |
 

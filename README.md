@@ -4,7 +4,7 @@ A chest-worn, fully offline navigation aid for blind and low-vision users that *
 - An **FPGA safety island** (Tang Nano 9K) keeps the alert path running even if the AI computer fails.
 - An on-device AI layer (Raspberry Pi 5) names hazards and reads text aloud.
 
-**Stage 2: Design Development.** This repository holds the design files. Nothing has been fabricated yet. Every number is labelled *target*, *calculated*, *simulated* or *cited*; none is a hardware measurement.
+**Stage 2: Design Development.** This repository holds the design files. Nothing has been fabricated yet. Every number is labelled *target*, *calculated*, *simulated*, *cited* or *measured on the development laptop* (Pi software, not a Pi 5); none is a measurement on VisionAid hardware.
 
 | Path | Contents |
 |---|---|

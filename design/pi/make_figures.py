@@ -8,7 +8,7 @@ b = json.load(open(os.path.join(HERE, 'results', 'bench_results.json')))
 a = json.load(open(os.path.join(HERE, 'results', 'detection_accuracy.json')))
 fig, axs = plt.subplots(1, 3, figsize=(16, 4.6))
 ax = axs[0]
-names = ['Detect', 'Camera ->\nspeech', 'TTS\nEnglish', 'TTS\nHindi', 'OCR\nlabel']
+names = ['Detect', 'Image file ->\nspeech WAV', 'TTS\nEnglish', 'TTS\nHindi', 'OCR\nlabel']
 vals = [b['detection_speed']['mean_ms'], b['end_to_end']['mean_ms'],
         sum(x['synth_ms'] for x in b['tts']['en']) / len(b['tts']['en']),
         sum(x['synth_ms'] for x in b['tts']['hi']) / len(b['tts']['hi']),
@@ -19,9 +19,12 @@ for r, v in zip(bars, vals):
 ax.set_ylabel('time (ms)'); ax.set_title('Measured on laptop (%s), 4 threads - NOT Pi 5' % b['machine']['cpu'].split(' ')[2] if len(b['machine']['cpu'].split(' ')) > 2 else 'laptop', fontsize=9)
 ax = axs[1]
 pc = a['per_class']
-cls = sorted(pc, key=lambda c: -pc[c]['recall_large_at_0.35'])
-ax.barh(cls, [pc[c]['recall_large_at_0.35'] for c in cls], color='#3F6E12', label='recall, large (nearby) objects')
-ax.barh(cls, [pc[c]['AP50'] for c in cls], color='#5B6BA8', alpha=0.6, height=0.4, label='AP50')
+cls = sorted(pc, key=lambda c: -pc[c]['AP50'])
+lab = ['%s (n=%d)' % (c, pc[c]['gt']) for c in cls]
+ax.barh(lab, [pc[c]['AP50'] for c in cls], color='#5B6BA8', label='AP50 (all sizes)')
+# recall on objects that are large in the image (> 96 x 96 px, COCO definition); only where >= 5 such objects
+big = [pc[c]['recall_large_at_0.35'] if pc[c]['gt_large'] >= 5 else 0 for c in cls]
+ax.barh(lab, big, color='#3F6E12', alpha=0.85, height=0.4, label='recall, objects > 96x96 px (only if >= 5 of them)')
 ax.invert_yaxis(); ax.set_xlim(0, 1); ax.legend(fontsize=8, loc='lower right')
 ax.set_title('Detection accuracy vs COCO ground truth (200 images)\nmAP50 = %.2f over 12 hazard classes' % a['mAP50_hazard_classes'], fontsize=9)
 ax = axs[2]

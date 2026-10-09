@@ -1,5 +1,5 @@
 """VisionAid Stage 2: prototype BOM + power budget workbook (VisionAid_BOM_Power.xlsx).
-Prices: 'Quote' = listing checked on 8 Oct 2026 (source given); 'Estimate' = typical Indian retail,
+Prices: 'Quote' = live listing checked on 9 Oct 2026 (source + stock status given); 'Estimate' = typical Indian retail,
 must be verified before ordering. Power figures are design estimates (datasheet / assumption),
 NOT measurements - they are verified in Stage 3 with a USB-C power meter.
 Run: python3 design/bom/build_bom.py
@@ -13,14 +13,14 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 BOM = [
     # group, item, part / spec, qty, unit INR, basis, source, origin, lead time
-    ('Compute', 'AI computer', 'Raspberry Pi 5, 4 GB', 1, 12000, 'Quote', 'KSP Electronics listing (in stock); guides quote 5.5-7.5k', 'Imported, local distributor', '2-4 days'),
+    ('Compute', 'AI computer', 'Raspberry Pi 5, 4 GB', 1, 14500, 'Quote', 'kspelectronics.in INR 14,500 incl. GST (out of stock, 9 Oct); electronifyindia.com INR 12,600 (sold out)', 'Imported, local distributor', 'stock-dependent'),
     ('Compute', 'Active cooler', 'Raspberry Pi 5 Active Cooler', 1, 550, 'Estimate', 'Thingbits / Robocraze', 'Imported, local distributor', '2-4 days'),
     ('Compute', 'Storage', '64 GB microSD, A2', 1, 700, 'Estimate', 'Local / Amazon.in', 'Local', '1-3 days'),
-    ('Compute', 'FPGA safety island', 'Sipeed Tang Nano 9K (GW1NR-9)', 1, 2149, 'Quote', 'Probots.co.in (incl. GST)', 'Imported, local distributor', '1-3 days'),
-    ('Sensing', 'Camera', 'Raspberry Pi Camera Module 3 (standard, autofocus)', 1, 3250, 'Quote', 'Thingbits.in', 'Imported, local distributor', '2-4 days'),
+    ('Compute', 'FPGA safety island', 'Sipeed Tang Nano 9K (GW1NR-9)', 1, 2999, 'Quote', 'probots.co.in INR 2,999 incl. GST (out of stock, 9 Oct)', 'Imported, local distributor', 'stock-dependent'),
+    ('Sensing', 'Camera', 'Raspberry Pi Camera Module 3 (standard, autofocus)', 1, 3158, 'Quote', 'thingbits.in INR 3,157.68 incl. GST (in stock, 9 Oct)', 'Imported, local distributor', '2-4 days'),
     ('Sensing', 'Camera cable', 'Pi 5 camera FFC 22-15 pin, 300 mm', 1, 200, 'Estimate', 'Robu / Thingbits', 'Imported, local distributor', '2-4 days'),
     ('Sensing', 'Ultrasonic sensor', 'RCWL-1601 (3.3 V, HC-SR04 pin-out), incl. 1 spare', 4, 150, 'Estimate', 'Robu / Probots', 'Imported, local distributor', '2-4 days'),
-    ('Sensing', 'Drop-off LiDAR', 'Benewake TF-Luna (0.2-8 m, UART)', 1, 2118, 'Quote', 'Probots.co.in (incl. GST)', 'Imported, local distributor', '1-3 days'),
+    ('Sensing', 'Drop-off LiDAR', 'Benewake TF-Luna (0.2-8 m, UART)', 1, 2118, 'Quote', 'probots.co.in INR 2,118 incl. GST (out of stock, 9 Oct)', 'Imported, local distributor', 'stock-dependent'),
     ('Sensing', 'IMU', 'MPU-6050 (GY-521) module', 1, 200, 'Estimate', 'Robu', 'Local', '2-4 days'),
     ('Feedback', 'Haptic motors', '10 mm coin ERM, 3 V', 2, 60, 'Estimate', 'Robu', 'Local', '2-4 days'),
     ('Feedback', 'Audio', 'Bluetooth bone-conduction headset (budget)', 1, 2000, 'Estimate', 'Amazon.in', 'Imported', '2-5 days'),
@@ -29,7 +29,7 @@ BOM = [
     ('Carrier PCB', 'SMD parts', 'AMS1117, AO3400A x3, SS14, 1N4148W x3, R/C/LED, PTC (see KiCad BOM)', 1, 500, 'Estimate', 'Robu / Probots', 'Local', '2-4 days'),
     ('Carrier PCB', 'Connectors', 'JST-XH sockets + housings + crimps, 2x20 header, 2x 1x24 sockets, buzzer', 1, 600, 'Estimate', 'Robu', 'Local', '2-4 days'),
     ('Carrier PCB', 'Ribbon', '40-way IDC ribbon, 2 sockets, ~10 cm', 1, 150, 'Estimate', 'Robu', 'Local', '2-4 days'),
-    ('Mechanical', 'Filament', 'PETG 1 kg (enclosure ~140 g solid volume)', 1, 1200, 'Estimate', 'Robu / Amazon.in', 'Local', '2-4 days'),
+    ('Mechanical', 'Filament', 'PETG 1 kg (enclosure ~156 g if printed solid: 123 cm3 x 1.27 g/cm3)', 1, 1200, 'Estimate', 'Robu / Amazon.in', 'Local', '2-4 days'),
     ('Mechanical', 'Fasteners', 'M2.5 x 20 mm standoffs x4, M3 heat-set inserts, M2.5/M3 screws', 1, 400, 'Estimate', 'Robu', 'Local', '2-4 days'),
     ('Mechanical', 'Chest harness', 'GoPro-style chest harness + M5 thumb screw', 1, 600, 'Estimate', 'Amazon.in', 'Imported', '2-5 days'),
     ('Mechanical', 'Buttons', '3 x 12 mm tactile buttons with caps (READ / MODE / QUIET)', 1, 150, 'Estimate', 'Robu', 'Local', '2-4 days'),
@@ -37,7 +37,7 @@ BOM = [
 
 POWER = [
     # block, rail, current mA, voltage, W, basis
-    ('Raspberry Pi 5 (camera + YOLO running)', '5 V', None, 5.0, 6.0, 'Assumption - to be measured (Stage 3, USB-C meter)'),
+    ('Raspberry Pi 5, event-triggered AI', '5 V', None, 5.0, 5.9, 'Cited 3.0 W idle / 8.8 W full load (raspberry.tips 2026), AI busy ~50 % (assumption) -> 5.9 W; measure in Stage 3'),
     ('Camera Module 3', 'Pi', None, 3.3, 0.25, 'Assumption'),
     ('Tang Nano 9K (FPGA + on-board USB bridge)', '5 V', 80, 5.0, None, 'Assumption'),
     ('TF-Luna LiDAR', '5 V', 70, 5.0, None, 'Datasheet: average current <= 70 mA'),
@@ -55,7 +55,7 @@ def main():
     ws.title = 'Prototype BOM'
     head = ['Group', 'Item', 'Part / specification', 'Qty', 'Unit price (INR)', 'Line total (INR)',
             'Price basis', 'Source', 'Origin', 'Lead time']
-    ws.append(['VisionAid prototype BOM (Stage 2 design). Quote = listing checked 8 Oct 2026; Estimate = verify before ordering.'])
+    ws.append(['VisionAid prototype BOM (Stage 2 design). Quote = live listing checked 9 Oct 2026; Estimate = verify before ordering.'])
     ws.append(head)
     for r, row in enumerate(BOM, start=3):
         g, item, spec, q, u, basis, src, origin, lead = row
@@ -67,9 +67,10 @@ def main():
     ws.append(['', 'Grant', '', '', '', 30000])
     ws.append(['', 'Reserve (grant - total)', '', '', '', '=F%d-F%d' % (last + 4, last + 2)])
     ws.append([])
-    ws.append(['', 'BUDGET RULE', 'At the highest Pi 5 quote (INR 12,000) the build is ~INR 700 over the grant. '
-               'At the INR 5,500-7,500 distributor price it is ~INR 24-26k. Rule: buy the Pi 5 4 GB only at '
-               '<= INR 9,000, otherwise a Pi 4 4 GB (lower AI frame rate, same design).'])
+    ws.append(['', 'BUDGET RULE', 'Everything except the Pi 5 board costs INR 19,445, so the Pi 5 4 GB must cost <= INR 10,555 to stay '
+               'inside the INR 30,000 grant. On 9 Oct 2026 the checked listings were INR 12,600-14,500 and out of '
+               'stock, i.e. INR 2,045-3,945 over. Rule: re-quote at order time; if no Pi 5 4 GB <= INR 10,555, '
+               'cover the gap from team funds or move to a cheaper board (re-quote and re-test in Stage 3).'])
     ws.cell(row=ws.max_row, column=2).font = Font(bold=True, color='C0392B')
     for c in range(1, 11):
         ws.cell(row=2, column=c).font = Font(bold=True, color='FFFFFF')
