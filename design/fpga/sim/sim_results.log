@@ -3,12 +3,12 @@ VisionAid safety-island simulation (27 MHz, 3 x 33 ms ultrasonic slots)
 [  110.0 ms] PASS  T1 left  sensor 1500 mm measured within +/-1 mm
 [  110.0 ms] PASS  T1 right sensor 2500 mm measured within +/-1 mm
 [  110.0 ms] PASS  T1 head  sensor: nothing in range reported as 0xFFFF
-      measured: L=1499 mm  R=2499 mm  H=ffff
+      measured: L=1500 mm  R=2500 mm  H=ffff
 [  110.0 ms] PASS  T1 zones: 1.5 m -> WARN, 2.5 m -> INFO
       echo-edge -> motor-on latency: 4 events, mean 210.9 ns, max 214.2 ns (5.8 clock cycles)
 [  910.0 ms] PASS  T2 worst-case echo -> motor latency < 1 us (target <= 1 ms)
 [  910.0 ms] PASS  T3 Pi status frames received with valid checksums
-      frames ok=45 bad=0, last: L=849 R=2499 LiDAR=150 cm flags=00000000
+      frames ok=45 bad=0, last: L=850 R=2500 LiDAR=150 cm flags=00000000
 [  960.4 ms] PASS  T4 Python-built Pi command accepted: LiDAR baseline = 150 cm
 [  960.4 ms] PASS  T4 no drop-off alert on a flat floor
       drop-off detected 22.3 ms after the floor reading changed (3-frame filter at 100 Hz)

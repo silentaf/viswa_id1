@@ -33,7 +33,7 @@ module va_ultrasonic #(
     reg [1:0]  miss [0:2];
     reg        echo_d;
     wire       e = echo[ch];
-    wire [31:0] mm_full = echo_t * 32'd11239;
+    wire [31:0] mm_full = echo_t * 32'd11239 + 32'd32768;  // + half-LSB for round-to-nearest (was truncating)
     wire [15:0] mm = mm_full[31:16];
 
     integer i;

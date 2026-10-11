@@ -10,6 +10,15 @@ import math
 from .protocol import build_command, CMD_LIDAR_BASELINE_CM
 
 LIDAR_PITCH_DEG = 35.0
+MIN_BEAM_ANGLE_DEG = 5.0  # clamp floor: avoids sin()->0 (div-by-zero) if the user bends far enough that
+                          # LIDAR_PITCH_DEG + pitch_deg approaches or crosses 0 deg (beam near-horizontal/upward)
+
+
+def _beam_angle_rad(pitch_deg):
+    angle = LIDAR_PITCH_DEG + pitch_deg
+    if angle < MIN_BEAM_ANGLE_DEG:
+        angle = MIN_BEAM_ANGLE_DEG
+    return math.radians(angle)
 
 
 class FloorBaseline:
@@ -20,11 +29,11 @@ class FloorBaseline:
 
     def calibrate(self, lidar_cm, pitch_deg):
         """Stand still for 2 s at start-up: derive the real chest height from the measured flat-floor range."""
-        self.h = (lidar_cm / 100.0) * math.sin(math.radians(LIDAR_PITCH_DEG + pitch_deg))
+        self.h = (lidar_cm / 100.0) * math.sin(_beam_angle_rad(pitch_deg))
         return self.h
 
     def expected_cm(self, pitch_deg):
-        return 100.0 * self.h / math.sin(math.radians(LIDAR_PITCH_DEG + pitch_deg))
+        return 100.0 * self.h / math.sin(_beam_angle_rad(pitch_deg))
 
     def command(self, pitch_deg):
         """Returns the 5-byte command to send, or None if the baseline hasn't changed enough to bother."""

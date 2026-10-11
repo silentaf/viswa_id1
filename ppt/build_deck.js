@@ -132,14 +132,14 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   s.addImage({ path: A('logo_makerbhavan.png'), x: 11.4, y: 0.35, w: 1.5, h: 0.67 });
   s.addText('VISHWAKARMA AWARDS 2026-27  ·  STAGE 2 DESIGN SPECIFICATION', { x: 0.6, y: 1.45, w: 7.4, h: 0.4,
     fontFace: FONT, fontSize: 13, bold: true, color: SLATE, charSpacing: 1, margin: 0, isTextBox: true });
-  s.addText('Vishwakarma Application ID: [add before submission]', { x: 0.6, y: 1.9, w: 7.4, h: 0.45,
-    fontFace: FONT, fontSize: 16, bold: true, color: RED, margin: 0, isTextBox: true });
+  s.addText('Vishwakarma Application ID: VK26-IITI-HT-0261', { x: 0.6, y: 1.9, w: 7.4, h: 0.45,
+    fontFace: FONT, fontSize: 16, bold: true, color: NAVY, margin: 0, isTextBox: true });
   s.addText('VisionAid', { x: 0.6, y: 2.45, w: 7.4, h: 1.0, fontFace: FONT, fontSize: 54, bold: true, color: NAVY,
     margin: 0, isTextBox: true });
   s.addText('A chest-worn, fully offline navigation aid that adds head-level-obstacle and drop-off warnings to the white cane - with an FPGA "safety island" whose alerts keep working even if the AI computer fails.',
     { x: 0.6, y: 3.45, w: 7.2, h: 1.0, fontFace: FONT, fontSize: 16, color: INK, margin: 0, isTextBox: true });
   const meta = [
-    ['Team ID: ', '[add before submission]'],
+    ['Team ID: ', 'VK26-IITI-HT-0261'],
     ['Track: ', 'Assistive Solutions & Inclusive Living'],
     ['Team SVNIT: ', 'Jayant Kumawat (lead), Sneha Ahir, Aman Gupta - SVNIT Surat'],
     ['Mentor institute: ', 'IIT Indore'],
@@ -265,7 +265,7 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     ['Obstacle range (waist-head)', '0.3-3.0 m', 'sensor class; housings +25° / ±15° (CAD)', '3 × RCWL-1601, 3.3 V, sequenced'],
     ['Alert latency (echo → motor)', '≤ 1 ms', 'Simulated: max 214 ns (4 events)', 'Tang Nano 9K GW1NR-9 FPGA, 27 MHz'],
     ['Update period / direction', '≤ 100 ms', '99 ms by design (simulated)', '3 × 33 ms slots (no crosstalk)'],
-    ['Distance resolution', '≤ ±5 cm to 2 m', 'Timer logic simulated: 1500 → 1499 mm (sensor error: Stage 3)', '1 µs echo timer (0.17 mm/count)'],
+    ['Distance resolution', '≤ ±5 cm to 2 m', 'Timer: 1500 mm in → 1500 mm out, exact (sensor error: Stage 3)', '1 µs echo timer (0.17 mm/count)'],
     ['Drop-off warning', '≥ 1.0 m ahead', 'Calculated 1.86 m (−35° from 1.3 m); alert 22 ms (sim.)', 'Benewake TF-Luna + IMU tilt correction'],
     ['Object name / OCR', '≤ 1 s / ≤ 3 s', 'Laptop: detect 28 ms, e2e 211 ms, OCR 1.2-1.4 s', 'Raspberry Pi 5 4 GB + Camera Module 3'],
     ['Pi fails → alert path', 'unaffected, cue ≤ 1 s', 'Simulated: AI-offline at 666 ms', 'FPGA heartbeat watchdog (GPIO17)'],
@@ -372,7 +372,7 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   caption(s, 'Plotted event: 136 ns from echo edge to motor ON (motor rises on the same clock as the zone change). The testbench monitor samples 2 clocks later, so its 214 ns is a conservative upper bound.', 0.45, 5.75, 7.5);
   table(s, [
     ['Testbench check (Icarus Verilog)', 'Result'],
-    ['Distance 1500 / 2500 mm', '1499 / 2499 mm'],
+    ['Distance 1500 / 2500 mm', '1500 / 2500 mm (exact)'],
     ['Echo edge → motor ON', '136 ns wave; ≤ 214 ns bound'],
     ['Frames to Pi (Verilog / Py)', '192 / 192 decoded, 0 bad'],
     ['LiDAR drop-off', 'alert 22.3 ms after change'],
@@ -382,12 +382,12 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   ], 8.15, 1.05, 4.73, [2.45, 2.28], { size: 11, rowH: 0.3 });
   table(s, [
     ['27 MHz', 'GW1NR-9 nextpnr', 'Zynq-7020 Vivado'],
-    ['LUTs', '1,512 / 8,640 (17 %)', '653 / 53,200 (1.2 %)'],
-    ['Flip-flops', '568 / 6,480 (8 %)', '580 / 106,400 (0.55 %)'],
-    ['ALU / DSP', '914 ALU (14 %)', '1 DSP (0.45 %)'],
+    ['LUTs', '1,561 / 8,640 (18 %)', '658 / 53,200 (1.24 %)'],
+    ['Flip-flops', '574 / 6,480 (8 %)', '574 / 106,400 (0.54 %)'],
+    ['ALU / DSP', '930 ALU (14 %)', '1 DSP (0.45 %)'],
     ['Block RAM', '0 / 26', '0 / 140'],
     ['I/O', '26 / 276', 'n/a (OOC run)'],
-    ['Timing', 'Fmax 67.9 MHz, met', 'WNS +30.2 ns, met'],
+    ['Timing', 'Fmax 79.4 MHz, met', 'WNS +29.1 ns, met'],
   ], 8.15, 3.75, 4.73, [1.05, 1.85, 1.83], { size: 10, rowH: 0.28 });
   caption(s, 'Routed results (GW1NR-9 bitstream built; Vivado out-of-context). No hardware yet.', 8.15, 6.0, 4.73);
   note(s, 'Cross-verified:', 'the Verilog FPGA accepted a command built by our Python Pi code, and the Python decoder read every byte the FPGA sent - both sides of the link agree.', 6.4);
@@ -405,33 +405,33 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     '"Step down ahead. Stop."  ·  "Check device: head sensor."',
     '"person, left, 1.6 metres" - WAV files in design/pi/results/replay',
   ], { size: 12, fill: GREEN, line: GREENLINE });
-  note(s, 'Honest scope:', 'speeds measured on an i7 laptop (4 threads), NOT on a Pi 5; 211 ms excludes camera capture and audio playback. Accuracy is hardware-independent (COCO: 200 images vs human labels; OCR: 64 synthetic labels). Pi 5 timing in Stage 3.', 6.38);
+  note(s, 'Honest scope:', 'speeds measured on an i7 laptop (4 threads), NOT a Pi 5. Accuracy is proof-of-concept, not production-grade: mAP50 0.41 on stock COCO weights (200 images vs human labels). Stage 3: fine-tune on our own Indian, chest-height data - same plan as the pothole model.', 6.38);
 }
 
 // ======================================================================================= pothole fine-tune
 {
   const s = content('Model Training - Pothole Detector (fine-tuned)', 'TRAINED · HELD-OUT TEST');
   img(s, 'pothole_test_pred.png', 0.45, 1.05, 5.0, 4.98);
-  caption(s, 'Our model on 16 held-out test images (boxes = its predictions, number = confidence)', 0.45, 6.06, 5.0);
+  caption(s, '16 held-out INDIAN road test photos (RDD2020) - boxes = its predictions, number = confidence', 0.45, 6.06, 5.0);
   table(s, [
-    ['Held-out test split (100 images, 269 potholes)', 'Result'],
-    ['Precision', '0.64'],
-    ['Recall', '0.30'],
-    ['mAP50 / mAP50-95', '0.37 / 0.15'],
-    ['Speed, laptop CPU, 4 threads (not Pi 5)', '26 ms / image'],
+    ['Held-out test split (330 images, 736 potholes)', 'Result'],
+    ['Precision', '0.56'],
+    ['Recall', '0.42'],
+    ['mAP50 / mAP50-95', '0.45 / 0.19'],
+    ['Speed, laptop CPU, 4 threads (not Pi 5)', '23 ms / image'],
     ['Before fine-tuning (COCO model)', 'no pothole class at all'],
   ], 5.75, 1.05, 7.13, [4.83, 2.3], { size: 12, rowH: 0.36 });
   card(s, 5.75, 3.35, 3.47, 2.8, 'How it was trained', [
-    'YOLO11n, COCO-pretrained start, 100 epochs, RTX 5060 GPU, 7.7 min',
-    'Public dataset, CC BY 4.0: 100 train / 100 valid / 100 test images',
-    'Checked: no train-test image overlap (name + pixel hash, incl. flips)',
+    'YOLO11n, COCO-pretrained start, 100 epochs, RTX 5060 GPU, 8.8 min',
+    '1,239 train images: Ryukijano public set (153 unique photos, CC BY 4.0) + 1,070 REAL INDIAN road photos (RDD2020, Arya et al. 2020, peer-reviewed)',
+    'Checked: zero unique-photo overlap between train, valid, test',
   ], { size: 12 });
   card(s, 9.41, 3.35, 3.47, 2.8, 'Honest limits', [
-    'Finds ~3 in 10 potholes; ~2 in 3 detections are real',
-    'Small set of mostly non-Indian road photos, taken from vehicle / hand height',
-    'Stage 3: Indian, chest-height data from our own camera',
+    'Finds ~4 in 10 potholes; a bit over half of detections are real',
+    'RDD2020 photos are dashcam/vehicle height, not yet our chest-mounted angle',
+    'Stage 3: capture our own chest-height photos with the actual pod camera',
   ], { size: 12, headColor: RED });
-  note(s, 'Why it matters:', 'the whole training pipeline (data checks → fine-tune → held-out test → ONNX for the Pi) works end to end; files in design/pi/training.', 6.38);
+  note(s, 'Why it matters:', 'recall > precision on purpose - missing a pothole risks a fall, a false alarm costs one caution beep. Test set now includes 230 real Indian road photos (RDD2020), not just the original non-Indian set. Files: design/pi/training.', 6.38);
 }
 
 // ======================================================================================= sensor analysis
@@ -520,7 +520,7 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   const s = content('Roadmap - 4-Month Fabrication Plan');
   const months = [
     ['Nov 2026', ['Order parts + carrier PCB (LionCircuits)', 'FPGA + sensor bring-up on the bench', 'Range, latency (logic analyser at TP4/TP5), power tests']],
-    ['Dec 2026', ['PCB assembly; Pi software integration', 'Print + fit enclosure; thermal test in pod', 'India-class dataset (auto-rickshaw, cow, pothole, drain)']],
+    ['Dec 2026', ['PCB assembly; Pi software integration', 'Print + fit enclosure; thermal test in pod', 'India dataset: rickshaw, cow, drain (pothole done early, RDD2020)']],
     ['Jan 2027', ['Ethics approval (institute ethics committee)', 'Supervised trials: sighted blindfolded first', 'Then blind volunteers with an O&M instructor']],
     ['Feb 2027', ['Fix top issues from trials', 'Re-run all Stage 2 tests on hardware', 'Field-test-ready unit for Stage 3']],
   ];
@@ -586,6 +586,7 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     'Sipeed Tang Nano 9K wiki and pin map; Benewake TF-Luna datasheet; Raspberry Pi 5 / Camera Module 3 product briefs.',
     'Raspberry Pi 5 power (≈ 3.0 W idle, ≈ 8.8 W full load): raspberry.tips power comparison, 2026. Part prices: kspelectronics.in, electronifyindia.com, probots.co.in, thingbits.in (9 Oct 2026).',
     'COCO val2017 (cocodataset.org); YOLOv5n, YOLO11n (Ultralytics); RapidOCR / PP-OCR; Piper TTS (rhasspy). Pothole data: Roboflow Universe "Potholes Detection" (project-ssayl), CC BY 4.0, via Hugging Face Ryukijano/Pothole-detection-Yolov8.',
+    'Arya D. et al., Global Road Damage Detection: State-of-the-art Solutions, IEEE Big Data, 2020 (RDD2020 India subset, CC BY-SA 4.0: 1,530 real Indian road photos with pothole boxes; huggingface.co/datasets/ShixuanAn/RDD2020).',
     'Tools: KiCad 9, FreeCAD + CalculiX + Gmsh, Icarus Verilog, GTKWave, Yosys, nextpnr + Apicula, Vivado 2026.1, FreeRouting.',
   ], { size: 12 });
   card(s, 7.65, 1.1, 5.23, 5.05, 'Image sources', [
@@ -595,7 +596,7 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
     'FEA plots - design/cad/outputs/fea',
     'Waveforms - design/fpga (testbench); AI / analysis charts - design/pi, design/analysis',
     'Screenshots - docs/screenshots',
-    'Exception: the road photos on the pothole slide are from the public dataset above (CC BY 4.0); only the boxes are our model\'s output.',
+    'Exception: the road photos on the pothole slide are RDD2020 India photos (CC BY-SA 4.0, see references); only the boxes are our model\'s output.',
     'Logos: Vishwakarma Awards / Maker Bhavan Foundation (official template).',
   ], { size: 14 });
 }

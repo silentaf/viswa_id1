@@ -87,8 +87,8 @@ module va_lidar #(
     reg [3:0]  idx;
     reg [7:0]  b [0:7];
     reg [7:0]  sum;
-    reg [1:0]  over;
-    reg [7:0]  age_ms;
+    reg [$clog2(DROP_FRAMES + 1)-1:0] over;
+    reg [$clog2(STALE_MS + 1)-1:0]    age_ms;
     reg [10:0] hold;
     always @(posedge clk) begin
         if (rst) begin

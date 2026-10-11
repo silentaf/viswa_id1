@@ -24,3 +24,5 @@ design/fpga/vivado/*.log
 design/fpga/vivado/.Xil/
 design/fpga/vivado/clockInfo.txt
 __pycache__/
+# generic COCO-pretrained starting checkpoint, auto-downloaded by Ultralytics - not our work, redownloadable
+design/pi/training/yolo11n.pt
