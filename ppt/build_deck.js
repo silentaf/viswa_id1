@@ -453,14 +453,18 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
 // ======================================================================================= 12. maker journey
 {
   const s = content('Your Maker Journey - Evidence');
-  const ph = (x, y, w, h, t) => {
-    s.addShape(pres.ShapeType.roundRect, { x, y, w, h, rectRadius: 0.06, fill: { color: 'FBEDEC' },
-      line: { color: RED, width: 1, dashType: 'dash' } });
-    s.addText(t, { x: x + 0.15, y, w: w - 0.3, h, fontFace: FONT, fontSize: 13, bold: true, color: RED, align: 'center',
-      valign: 'middle', margin: 0, isTextBox: true });
-  };
-  ph(0.45, 1.1, 3.0, 2.3, 'PHOTO TO ADD:\nteam member doing CAD / KiCad with SVNIT ID badge visible');
-  ph(0.45, 3.55, 3.0, 2.3, 'PHOTO TO ADD:\njoint review with faculty guide / IIT Indore mentor');
+  s.addText('System data-flow (simplified)', { x: 0.45, y: 1.1, w: 3.0, h: 0.3, fontFace: FONT, fontSize: 12,
+    bold: true, color: NAVY, margin: 0, isTextBox: true });
+  box(s, 0.45, 1.45, 3.0, 0.55, 'Sensors\n3x ultrasonic + LiDAR + camera', NAVY, WHITE, 11);
+  arrow(s, 1.95, 2.0, 1.95, 2.18);
+  box(s, 0.45, 2.18, 3.0, 0.55, 'FPGA safety island\n(Tang Nano 9K) - zone logic', RED, WHITE, 11);
+  arrow(s, 1.1, 2.73, 0.73, 2.91);
+  arrow(s, 2.8, 2.73, 3.17, 2.91);
+  box(s, 0.45, 2.91, 1.42, 0.62, 'Haptic motors\n+ buzzer\n(hardware-bounded)', NAVY, WHITE, 9.5);
+  box(s, 2.03, 2.91, 1.42, 0.62, 'Pi 5 AI path\nYOLO + OCR\n(event-triggered)', SLATE, WHITE, 9.5);
+  arrow(s, 2.74, 3.53, 2.74, 3.71);
+  box(s, 1.95, 3.71, 1.5, 0.5, 'Bluetooth headset\nspoken alerts (Hi / En)', NAVY, WHITE, 9.5);
+  caption(s, 'Full architecture + timing on slide 7 (System Architecture)', 0.45, 4.35, 3.0);
   img(s, 'freecad_tree.png', 3.65, 1.1, 4.5, 3.0);
   caption(s, 'FreeCAD feature tree - FingerRootFillet R 1.5 mm', 3.65, 4.1, 4.5);
   img(s, 'drc_erc_strips.png', 8.35, 1.1, 4.53, 1.75);
