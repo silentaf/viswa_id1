@@ -464,7 +464,7 @@ function arrow(s, x1, y1, x2, y2, color = SLATE) {
   box(s, 2.03, 2.91, 1.42, 0.62, 'Pi 5 AI path\nYOLO + OCR\n(event-triggered)', SLATE, WHITE, 9.5);
   arrow(s, 2.74, 3.53, 2.74, 3.71);
   box(s, 1.95, 3.71, 1.5, 0.5, 'Bluetooth headset\nspoken alerts (Hi / En)', NAVY, WHITE, 9.5);
-  caption(s, 'Full architecture + timing on slide 7 (System Architecture)', 0.45, 4.35, 3.0);
+  caption(s, 'Full architecture + timing on slide 5 (System Architecture)', 0.45, 4.35, 3.0);
   img(s, 'freecad_tree.png', 3.65, 1.1, 4.5, 3.0);
   caption(s, 'FreeCAD feature tree - FingerRootFillet R 1.5 mm', 3.65, 4.1, 4.5);
   img(s, 'drc_erc_strips.png', 8.35, 1.1, 4.53, 1.75);
